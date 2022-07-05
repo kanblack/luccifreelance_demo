@@ -1,0 +1,20 @@
+{
+  "@@locale": "vn",
+  "lbl_project_management": "Quản lý dự án",
+  "lbl_centralized_department_management": "Quản lý bộ phân tập trung",
+  "lbl_centralized_human_resource_management": "Quản lý nhân sự cấp tập trung",
+  "lbl_configuration": "Cấu hình",
+  "lbl_option": "Tuỳ chọn",
+  "lbl_title_staff_info": "Thông tin nhân viên",
+  "lbl_staff_code": "Mã Nhân Viên",
+  "lbl_user_name": "Tên đăng nhập",
+  "lbl_email": "Email",
+  "lbl_phone_number": "Số điện thoại",
+  "lbl_day_of_birth": "Ngày sinh",
+  "lbl_gender": "Giới tính",
+  "lbl_address": "Địa chỉ",
+  "lbl_id_card": "CMND/CCCD/Hộ chiếu",
+  "lbl_date_range": "Ngày cấp",
+  "lbl_place_for_identity_card": "Nơi cấp",
+  "lbl_note": "Ghi chú"
+}

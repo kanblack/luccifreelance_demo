@@ -1,199 +1,116 @@
+import 'package:demo_luci_web/injection_container.dart';
+import 'package:demo_luci_web/src/shared/blocs_app/route_page_cubit/route_page_cubit.dart';
+import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
+import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
-class MenuBar extends StatelessWidget {
-  const MenuBar({Key? key}) : super(key: key);
+import '../../../generated/l10n.dart';
+import '../constants/colors_constants.dart';
+import 'avatar_app_bar_widget.dart';
+
+class MenuBarWidget extends StatelessWidget {
+  const MenuBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const Color navLinkColor = Color(0xFF6E7274);
-    return Container(
-      height: 66,
-      decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(color: Color(0x1A000000), offset: Offset(0, 2), blurRadius: 4)
-      ]),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        children: <Widget>[
-          const Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: Icon(Icons.menu, color: Colors.black, size: 28)),
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: GestureDetector(
-              onTap: () =>
-                  Navigator.of(context).popUntil((route) => route.isFirst),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 5, 16, 5),
-                child: Image.asset("assets/images/flutter_logo_text.png",
-                    height: 37, fit: BoxFit.contain),
-              ),
+    final logo = ResponsiveVisibility(
+      visible: false,
+      visibleWhen: const [Condition.largerThan(name: MOBILE)],
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () {},
+          child: Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Colors.blue, borderRadius: BorderRadius.circular(15)),
+            child: Text(
+              "Logo",
+              style: TextStyle(color: Colors.white),
             ),
           ),
+        ),
+      ),
+    );
+    final projectManagerButton = ResponsiveRowColumnItem(
+      child: TextButton(
+        onPressed: () {
+          getIt<RoutePageCubit>().showPageProjectManagement();
+        },
+        child: Text(
+          S.current.lbl_project_management,
+          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+        ),
+      ),
+    );
+    final centralizedDepartmentManagement = ResponsiveRowColumnItem(
+      child: TextButton(
+        onPressed: () {
+          getIt<RoutePageCubit>().showPageCentralizedDepartmentManagement();
+        },
+        child: Text(
+          S.current.lbl_centralized_department_management,
+          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+        ),
+      ),
+    );
+    final centralizedHumanResourceManagement = ResponsiveRowColumnItem(
+      child: TextButton(
+        onPressed: () {
+          getIt<RoutePageCubit>().showPageCentralizedHumanResourceManagement();
+        },
+        child: Text(
+          S.current.lbl_centralized_human_resource_management,
+          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+        ),
+      ),
+    );
+    final configuration = ResponsiveRowColumnItem(
+      child: TextButton(
+        onPressed: () {
+          getIt<RoutePageCubit>().showPageConfiguration();
+        },
+        child: Text(
+          S.current.lbl_configuration,
+          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+        ),
+      ),
+    );
+    final responsiveProjectAndDepartment = ResponsiveRowColumn(
+      layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+          ? ResponsiveRowColumnType.COLUMN
+          : ResponsiveRowColumnType.ROW,
+      rowMainAxisAlignment: MainAxisAlignment.center,
+      rowCrossAxisAlignment: CrossAxisAlignment.center,
+      children: [projectManagerButton, centralizedDepartmentManagement],
+    );
+    final responsiveHumaneAndConfig = ResponsiveRowColumn(
+      layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+          ? ResponsiveRowColumnType.COLUMN
+          : ResponsiveRowColumnType.ROW,
+      rowMainAxisAlignment: MainAxisAlignment.center,
+      rowCrossAxisAlignment: CrossAxisAlignment.center,
+      children: [centralizedHumanResourceManagement, configuration],
+    );
+    final avatarUserWidget = AvatarAppBarWidget();
+    return Container(
+      decoration: const BoxDecoration(color: Colors.red, boxShadow: [
+        BoxShadow(
+            color: AppColors.shadowColor, offset: Offset(0, 2), blurRadius: 4)
+      ]),
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppDimensPadding.contentPadding,
+          vertical: AppDimensPadding.smallPadding),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          logo,
+          responsiveProjectAndDepartment,
+          responsiveHumaneAndConfig,
           const Spacer(),
-          // ResponsiveVisibility(
-          //   visible: false,
-          //   visibleWhen: const [Condition.largerThan(name: MOBILE)],
-          //   child: MouseRegion(
-          //     cursor: SystemMouseCursors.click,
-          //     child: GestureDetector(
-          //       onTap: () => openUrl("https://flutter.dev/docs"),
-          //       child: const Padding(
-          //         padding: EdgeInsets.symmetric(horizontal: 16),
-          //         child: Text("Docs",
-          //             style: TextStyle(
-          //                 fontSize: 16,
-          //                 color: navLinkColor,
-          //                 fontFamily: fontFamily)),
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // ResponsiveVisibility(
-          //   visible: false,
-          //   visibleWhen: const [Condition.largerThan(name: MOBILE)],
-          //   child: MouseRegion(
-          //     cursor: SystemMouseCursors.click,
-          //     child: GestureDetector(
-          //       onTap: () => openUrl("https://flutter.dev/showcase"),
-          //       child: const Padding(
-          //         padding: EdgeInsets.symmetric(horizontal: 16),
-          //         child: Text("Showcase",
-          //             style: TextStyle(
-          //                 fontSize: 16,
-          //                 color: navLinkColor,
-          //                 fontFamily: fontFamily)),
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // ResponsiveVisibility(
-          //   visible: false,
-          //   visibleWhen: const [Condition.largerThan(name: MOBILE)],
-          //   child: MouseRegion(
-          //     cursor: SystemMouseCursors.click,
-          //     child: GestureDetector(
-          //       onTap: () => openUrl("https://flutter.dev/community"),
-          //       child: const Padding(
-          //           padding: EdgeInsets.symmetric(horizontal: 16),
-          //           child: Text("Community",
-          //               style: TextStyle(
-          //                   fontSize: 16,
-          //                   color: navLinkColor,
-          //                   fontFamily: fontFamily))),
-          //     ),
-          //   ),
-          // ),
-          // const ResponsiveVisibility(
-          //   visible: false,
-          //   visibleWhen: [Condition.largerThan(name: MOBILE)],
-          //   child: MouseRegion(
-          //     cursor: SystemMouseCursors.click,
-          //     child: Padding(
-          //       padding: EdgeInsets.symmetric(horizontal: 18),
-          //       child: ImageIcon(
-          //           AssetImage("assets/images/icon_search_64x.png"),
-          //           color: navLinkColor,
-          //           size: 24),
-          //     ),
-          //   ),
-          // ),
-          // MouseRegion(
-          //   cursor: SystemMouseCursors.click,
-          //   child: GestureDetector(
-          //     onTap: () => openUrl('https://twitter.com/flutterdev'),
-          //     child: const Padding(
-          //       padding: EdgeInsets.symmetric(horizontal: 8),
-          //       child: ImageIcon(
-          //           AssetImage("assets/images/icon_twitter_64x.png"),
-          //           color: navLinkColor,
-          //           size: 24),
-          //     ),
-          //   ),
-          // ),
-          // MouseRegion(
-          //   cursor: SystemMouseCursors.click,
-          //   child: GestureDetector(
-          //     onTap: () => openUrl('https://www.youtube.com/flutterdev'),
-          //     child: const Padding(
-          //       padding: EdgeInsets.symmetric(horizontal: 8),
-          //       child: ImageIcon(
-          //           AssetImage("assets/images/icon_youtube_64x.png"),
-          //           color: navLinkColor,
-          //           size: 24),
-          //     ),
-          //   ),
-          // ),
-          // MouseRegion(
-          //   cursor: SystemMouseCursors.click,
-          //   child: GestureDetector(
-          //     onTap: () => openUrl('https://github.com/flutter'),
-          //     child: const Padding(
-          //       padding: EdgeInsets.symmetric(horizontal: 8),
-          //       child: ImageIcon(
-          //           AssetImage("assets/images/icon_github_64x.png"),
-          //           color: navLinkColor,
-          //           size: 24),
-          //     ),
-          //   ),
-          // ),
-          // ResponsiveVisibility(
-          //   visible: false,
-          //   visibleWhen: const [Condition.largerThan(name: MOBILE)],
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(left: 8, right: 0),
-          //     child: TextButton(
-          //       onPressed: () =>
-          //           openUrl("https://flutter.dev/docs/get-started/install"),
-          //       style: ButtonStyle(
-          //           backgroundColor: MaterialStateProperty.all<Color>(primary),
-          //           overlayColor: MaterialStateProperty.resolveWith<Color>(
-          //             (Set<MaterialState> states) {
-          //               if (states.contains(MaterialState.hovered)) {
-          //                 return buttonPrimaryDark;
-          //               }
-          //               if (states.contains(MaterialState.focused) ||
-          //                   states.contains(MaterialState.pressed)) {
-          //                 return buttonPrimaryDarkPressed;
-          //               }
-          //               return primary;
-          //             },
-          //           ),
-          //           // Shape sets the border radius from default 3 to 0.
-          //           shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
-          //             (Set<MaterialState> states) {
-          //               if (states.contains(MaterialState.focused) ||
-          //                   states.contains(MaterialState.pressed)) {
-          //                 return const RoundedRectangleBorder(
-          //                     borderRadius:
-          //                         BorderRadius.all(Radius.circular(0)));
-          //               }
-          //               return const RoundedRectangleBorder(
-          //                   borderRadius: BorderRadius.all(Radius.circular(0)));
-          //             },
-          //           ),
-          //           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-          //               const EdgeInsets.symmetric(
-          //                   vertical: 22, horizontal: 28)),
-          //           // Side adds pressed highlight outline.
-          //           side: MaterialStateProperty.resolveWith<BorderSide>(
-          //               (Set<MaterialState> states) {
-          //             if (states.contains(MaterialState.focused) ||
-          //                 states.contains(MaterialState.pressed)) {
-          //               return const BorderSide(
-          //                   width: 3, color: buttonPrimaryPressedOutline);
-          //             }
-          //             // Transparent border placeholder as Flutter does not allow
-          //             // negative margins.
-          //             return const BorderSide(width: 3, color: Colors.white);
-          //           })),
-          //       child: Text(
-          //         "Get started",
-          //         style: buttonTextStyle.copyWith(
-          //             fontSize: 16, fontWeight: FontWeight.bold),
-          //       ),
-          //     ),
-          //   ),
-          // ),
+          avatarUserWidget
         ],
       ),
     );
