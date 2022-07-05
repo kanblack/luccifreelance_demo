@@ -18,14 +18,14 @@ class LoadingImageWidget extends StatelessWidget {
       imageUrl: getImageUrl(imgUrl),
       progressIndicatorBuilder: (context, url, progress) => Container(
         color: Colors.white,
-        child: Center(
+        child: const Center(
           child: CircularProgressIndicator(
             color: Colors.red,
           ),
         ),
       ),
       errorWidget: (context, url, error) => Image.asset(
-        "AppImg.imgLbcTransTechLogo",
+        "",
         fit: BoxFit.cover,
       ),
     );

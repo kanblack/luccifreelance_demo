@@ -36,7 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "lbl_id_card":
             MessageLookupByLibrary.simpleMessage("CMND/CCCD/Hộ chiếu"),
         "lbl_note": MessageLookupByLibrary.simpleMessage("Ghi chú"),
-        "lbl_option": MessageLookupByLibrary.simpleMessage("Tuỳ chọn"),
+        "lbl_option": MessageLookupByLibrary.simpleMessage("Tùy chọn"),
         "lbl_phone_number":
             MessageLookupByLibrary.simpleMessage("Số điện thoại"),
         "lbl_place_for_identity_card":

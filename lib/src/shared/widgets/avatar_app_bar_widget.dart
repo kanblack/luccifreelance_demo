@@ -12,7 +12,7 @@ class AvatarAppBarWidget extends StatefulWidget {
 }
 
 class _AvatarAppBarWidgetState extends State<AvatarAppBarWidget> {
-  final smallPadding = SizedBox(
+  final smallPadding = const SizedBox(
     width: AppDimensPadding.smallPadding,
   );
   final iconNotification = ResponsiveVisibility(
@@ -25,7 +25,7 @@ class _AvatarAppBarWidgetState extends State<AvatarAppBarWidget> {
           color: Colors.white,
         )),
   );
-  final avatar = CircleAvatar(
+  final avatar = const CircleAvatar(
     radius: AppAvatarSize.smallSize,
     backgroundColor: Colors.blue,
   );
@@ -34,7 +34,7 @@ class _AvatarAppBarWidgetState extends State<AvatarAppBarWidget> {
     visibleWhen: const [Condition.largerThan(name: MOBILE)],
     child: Text(
       "Chu tiến Long",
-      style: AppTextStyle.caption1.apply(color: AppColors.textAppbar),
+      style: AppTextStyle.caption1.apply(color: textAppbar),
     ),
   );
   final buttonDropDown = ResponsiveVisibility(

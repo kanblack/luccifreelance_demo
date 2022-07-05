@@ -24,12 +24,12 @@ class StaffInfoWidget extends StatelessWidget {
         style: AppTextStyle.heading2Bold,
       ),
     );
-    final staffInfoDetail = StaffInfoDetailWidget();
+    const staffInfoDetail =  StaffInfoDetailWidget();
 
     return ResponsiveConstraints(
       constraintsWhen: blockWidthConstraints,
       child: Container(
-        decoration: BoxDecoration(color: Colors.black12),
+        decoration: const BoxDecoration(color: Colors.black12),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

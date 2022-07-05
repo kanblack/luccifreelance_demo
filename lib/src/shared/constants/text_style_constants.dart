@@ -4,23 +4,23 @@ import 'colors_constants.dart';
 
 class AppTextStyle {
   static final appBarTitle =
-      customTextStyle(FontWeight.w400, 14, AppColors.textAppbar);
+      customTextStyle(FontWeight.w400, 14, textAppbar);
   static final heading1Bold =
-      customTextStyle(FontWeight.w700, 24, AppColors.textNormal);
+      customTextStyle(FontWeight.w700, 24, textNormal);
   static final heading2Bold =
-      customTextStyle(FontWeight.w700, 20, AppColors.textNormal);
+      customTextStyle(FontWeight.w700, 20, textNormal);
   static final heading3 =
-      customTextStyle(FontWeight.w500, 18, AppColors.textNormal);
+      customTextStyle(FontWeight.w500, 18, textNormal);
   static final heading3Bold =
-      customTextStyle(FontWeight.bold, 18, AppColors.textNormal);
+      customTextStyle(FontWeight.bold, 18, textNormal);
   static final body1 =
-      customTextStyle(FontWeight.w400, 16, AppColors.textNormal);
+      customTextStyle(FontWeight.w400, 16, textNormal);
   static final body1Medium =
-      customTextStyle(FontWeight.w600, 16, AppColors.textNormal);
+      customTextStyle(FontWeight.w600, 16, textNormal);
   static final body1Bold =
-      customTextStyle(FontWeight.w700, 16, AppColors.textNormal);
+      customTextStyle(FontWeight.w700, 16, textNormal);
   static final caption1 =
-      customTextStyle(FontWeight.w400, 14, AppColors.textNormal);
+      customTextStyle(FontWeight.w400, 14, textNormal);
 }
 
 TextStyle customTextStyle(FontWeight fontWeight, double size, Color color,

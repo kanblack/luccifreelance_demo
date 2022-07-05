@@ -14,7 +14,7 @@ class AvatarStaffWidget extends StatelessWidget {
       width: AppDimensPadding.smallPadding,
     );
     final avatarStaff = CircleAvatar(
-      backgroundColor: AppColors.shadowColor,
+      backgroundColor: shadowColor,
       radius: AppAvatarSize.normalSize,
       child: Container(),
     );

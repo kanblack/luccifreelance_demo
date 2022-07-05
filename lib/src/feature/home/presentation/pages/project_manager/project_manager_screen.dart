@@ -16,7 +16,7 @@ class ProjectManagerScreen extends StatefulWidget {
 class _ProjectManagerScreenState extends State<ProjectManagerScreen> {
   @override
   Widget build(BuildContext context) {
-    final paddingLeftTitle = SizedBox(
+    const paddingLeftTitle = SizedBox(
       width: 24,
     );
     final titlePage = Container(
@@ -29,7 +29,7 @@ class _ProjectManagerScreenState extends State<ProjectManagerScreen> {
           paddingLeftTitle,
           Text(
             S.current.lbl_centralized_human_resource_management,
-            style: AppTextStyle.body1Medium.apply(color: AppColors.textButton),
+            style: AppTextStyle.body1Medium.apply(color: appBarColor),
           ),
           const Text(
             " / ",
@@ -48,9 +48,9 @@ class _ProjectManagerScreenState extends State<ProjectManagerScreen> {
           titlePage,
           Row(
             children: [
-              Flexible(flex: 2, child: StaffInfoWidget()),
+              const Flexible(flex: 2, child: StaffInfoWidget()),
               Flexible(flex: 3, child: Container()),
-              Flexible(flex: 2, child: AvatarStaffWidget()),
+              const Flexible(flex: 2, child:  AvatarStaffWidget()),
             ],
           )
         ],

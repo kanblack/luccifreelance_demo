@@ -22,10 +22,10 @@ class MenuBarWidget extends StatelessWidget {
         child: GestureDetector(
           onTap: () {},
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-                color: Colors.blue, borderRadius: BorderRadius.circular(15)),
-            child: Text(
+                color: logoBackground, borderRadius: BorderRadius.circular(15)),
+            child: const Text(
               "Logo",
               style: TextStyle(color: Colors.white),
             ),
@@ -40,7 +40,7 @@ class MenuBarWidget extends StatelessWidget {
         },
         child: Text(
           S.current.lbl_project_management,
-          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+          style: AppTextStyle.appBarTitle.apply(color: textAppbar),
         ),
       ),
     );
@@ -51,7 +51,7 @@ class MenuBarWidget extends StatelessWidget {
         },
         child: Text(
           S.current.lbl_centralized_department_management,
-          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+          style: AppTextStyle.appBarTitle.apply(color: textAppbar),
         ),
       ),
     );
@@ -62,7 +62,7 @@ class MenuBarWidget extends StatelessWidget {
         },
         child: Text(
           S.current.lbl_centralized_human_resource_management,
-          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+          style: AppTextStyle.appBarTitle.apply(color: textAppbar),
         ),
       ),
     );
@@ -73,7 +73,7 @@ class MenuBarWidget extends StatelessWidget {
         },
         child: Text(
           S.current.lbl_configuration,
-          style: AppTextStyle.appBarTitle.apply(color: AppColors.textAppbar),
+          style: AppTextStyle.appBarTitle.apply(color: textAppbar),
         ),
       ),
     );
@@ -93,11 +93,10 @@ class MenuBarWidget extends StatelessWidget {
       rowCrossAxisAlignment: CrossAxisAlignment.center,
       children: [centralizedHumanResourceManagement, configuration],
     );
-    final avatarUserWidget = AvatarAppBarWidget();
+    const avatarUserWidget = AvatarAppBarWidget();
     return Container(
-      decoration: const BoxDecoration(color: Colors.red, boxShadow: [
-        BoxShadow(
-            color: AppColors.shadowColor, offset: Offset(0, 2), blurRadius: 4)
+      decoration: const BoxDecoration(color: appBarColor, boxShadow: [
+        BoxShadow(color: shadowColor, offset: Offset(0, 2), blurRadius: 4)
       ]),
       padding: const EdgeInsets.symmetric(
           horizontal: AppDimensPadding.contentPadding,

@@ -25,7 +25,7 @@ ThemeData getAppTheme() {
   return base.copyWith(
     textTheme: _basicTextTheme(base.textTheme),
     primaryColor: Colors.white,
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: Colors.white,
       size: AppDimens.buttonSize,
     ),

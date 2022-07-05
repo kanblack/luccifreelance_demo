@@ -20,6 +20,7 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
     'Đổi mật khẩu',
     'Xoá nhân sự',
   ];
+
   @override
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
@@ -37,7 +38,8 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
                 BorderRadius.circular(AppDimensBorder.bottomSheetBorder)),
         hint: Text(
           S.current.lbl_option,
-          style: AppTextStyle.caption1.apply(color: AppColors.textButton),
+          style: AppTextStyle.caption1.merge(
+              const TextStyle(color: appBarColor, fontWeight: FontWeight.bold)),
         ),
         items: [
           DropdownMenuItem<String>(
@@ -59,8 +61,7 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
           DropdownMenuItem<String>(
             value: items[2],
             child: Text(items[2],
-                style: AppTextStyle.caption1
-                    .apply(color: AppColors.textButtonDelete)),
+                style: AppTextStyle.caption1.apply(color: textButtonDelete)),
           )
         ],
         value: selectedValue,
