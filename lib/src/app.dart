@@ -1,13 +1,17 @@
+import 'package:demo_luci_web/src/shared/blocs_app/route_page_cubit/route_page_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../generated/l10n.dart';
 import '../injection_container.dart';
 import 'shared/blocs_app/loading_cubit/loading_cubit.dart';
 import 'shared/config/routes/route_names.dart';
 import 'shared/config/routes/routes.dart';
 import 'shared/config/themes/theme_app.dart';
+import 'shared/constants/app_constants.dart';
 import 'shared/widgets/loading.dart';
 
 class App extends StatelessWidget {
@@ -17,8 +21,9 @@ class App extends StatelessWidget {
         BlocProvider<LoadingCubit>(
           create: (_) => getIt<LoadingCubit>(),
         ),
-        // BlocProvider<AuthenticationBloc>(
-        //     create: (_) => getIt<AuthenticationBloc>())
+        BlocProvider<RoutePageCubit>(
+          create: (_) => getIt<RoutePageCubit>(),
+        ),
       ];
 
   List<BlocListener> _getBlocListener(context) => [];
@@ -31,17 +36,16 @@ class App extends StatelessWidget {
         child: MaterialApp(
           navigatorKey: Routes.instance.navigatorKey,
           debugShowCheckedModeBanner: false,
-          title: 'BalikbayanBox',
+          title: 'Luci demo',
           onGenerateRoute: Routes.generateRoute,
-          initialRoute: RouteNames.splashScreen,
+          initialRoute: RouteNames.mainScreen,
           theme: getAppTheme(),
           localizationsDelegates: const [
-            // S.delegate,
-            // GlobalMaterialLocalizations.delegate,
-            // GlobalWidgetsLocalizations.delegate,
-            // GlobalCupertinoLocalizations.delegate,
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
           ],
-          // supportedLocales: S.delegate.supportedLocales,
+          supportedLocales: S.delegate.supportedLocales,
           builder: (context, widget) => ResponsiveWrapper.builder(
             ClampingScrollWrapper.builder(
                 context,
@@ -59,13 +63,21 @@ class App extends StatelessWidget {
                   ),
                 )),
             defaultScale: true,
-            minWidth: 480,
-            defaultName: DESKTOP,
+            minWidth: AppScreenResponsive.minWidth,
+            defaultName: MOBILE,
             breakpoints: [
-              const ResponsiveBreakpoint.autoScale(480, name: MOBILE),
-              const ResponsiveBreakpoint.resize(600, name: MOBILE),
-              const ResponsiveBreakpoint.resize(850, name: TABLET),
-              const ResponsiveBreakpoint.resize(1080, name: DESKTOP),
+              const ResponsiveBreakpoint.autoScale(
+                  AppScreenResponsive.autoScaleMobile,
+                  name: MOBILE),
+              const ResponsiveBreakpoint.resize(
+                  AppScreenResponsive.resizeMobile,
+                  name: MOBILE),
+              const ResponsiveBreakpoint.resize(
+                  AppScreenResponsive.resizeTablet,
+                  name: TABLET),
+              const ResponsiveBreakpoint.resize(
+                  AppScreenResponsive.resizeDesktop,
+                  name: DESKTOP),
             ],
             background: Container(color: Colors.white),
           ),

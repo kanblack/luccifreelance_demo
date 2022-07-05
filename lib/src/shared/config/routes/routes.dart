@@ -1,3 +1,5 @@
+import 'package:demo_luci_web/src/feature/home/presentation/pages/main_screen.dart';
+import 'package:demo_luci_web/src/shared/config/routes/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -55,6 +57,8 @@ class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     LOG.info('Route name: ${settings.name}');
     switch (settings.name) {
+      case RouteNames.mainScreen:
+        return _pageRoute(page: const MainScreen(), setting: settings);
       default:
         return _emptyRoute(settings);
     }

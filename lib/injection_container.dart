@@ -1,6 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:demo_luci_web/src/shared/blocs_app/route_page_cubit/route_page_cubit.dart';
 import 'package:get_it/get_it.dart';
 
+import 'src/shared/blocs_app/loading_cubit/loading_cubit.dart';
 import 'src/shared/network/network_info.dart';
 import 'src/shared/services/dio_manager.dart';
 import 'src/shared/services/local_store_service.dart';
@@ -16,7 +18,10 @@ Future<void> init() async {
   _configureCores();
 }
 
-void _configureBlocs() {}
+void _configureBlocs() {
+  getIt.registerLazySingleton(() => LoadingCubit());
+  getIt.registerLazySingleton(() => RoutePageCubit());
+}
 
 void _configureUseCases() {}
 

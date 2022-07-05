@@ -42,3 +42,8 @@ class AppDimensOther {
   static const maxLineErrorText = 2;
   static const timelineConnectorHeight = 69;
 }
+
+class AppAvatarSize {
+  static const smallSize = 15.0;
+  static const normalSize = 30.0;
+}
