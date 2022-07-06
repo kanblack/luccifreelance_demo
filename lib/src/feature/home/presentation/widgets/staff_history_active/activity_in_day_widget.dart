@@ -1,7 +1,9 @@
 import 'package:demo_luci_web/src/feature/home/domain/entities/group_time_line.dart';
 import 'package:demo_luci_web/src/shared/constants/colors_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
+import 'package:demo_luci_web/src/shared/constants/enums_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
+import 'package:demo_luci_web/src/shared/utils/enum_extension.dart';
 import 'package:flutter/material.dart';
 
 import 'activity_at_time_widget.dart';
@@ -28,7 +30,7 @@ class ActivityDayWidget extends StatelessWidget {
             color: textNormal,
           ),
           Text(
-            timeLine?.createdAt.toString() ?? "",
+            timeLine?.getTime() ?? "",
             style: AppTextStyle.body1Medium,
           )
         ],
@@ -40,8 +42,10 @@ class ActivityDayWidget extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return ActivityAtTimeWidget(
-                time: timeLine?.timeLine[index].createdAt ?? "",
-                contentActivity: timeLine?.timeLine[index].actionType ?? "",
+                time: timeLine?.timeLine[index].getTime() ?? "",
+                contentActivity: getActionTypeEnum(
+                    timeLine?.timeLine[index].actionType ??
+                        ActionTypeEnum.unKnow),
               );
             },
             itemCount: timeLine?.timeLine.length,

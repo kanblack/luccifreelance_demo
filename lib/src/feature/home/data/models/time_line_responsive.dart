@@ -15,7 +15,9 @@ class TimeLineResponsive {
 
   TimeLineResponsive.fromJson(dynamic json) {
     _id = json['id'];
-    _actionType = json['actionType'];
+    if (json['actionType'] != null) {
+      _actionType = json['actionType'];
+    }
     _createdAt = json['createdAt'];
   }
   String? _id;

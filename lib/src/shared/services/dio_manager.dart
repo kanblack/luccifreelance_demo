@@ -7,7 +7,6 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../../../env.dart';
 import '../../../injection_container.dart';
-import '../blocs_app/authentication/authentication.dart';
 import '../constants/api_constants.dart';
 import '../entitis/auth.dart';
 import '../entitis/refresh_dto.dart';
