@@ -93,32 +93,26 @@ class _CentralizedHumanResourceManagementStateScreenState
     final staffInfoWidget = BlocBuilder<CentralizedHumanResourceManagementBloc,
         CentralizedHumanResourceManagementState>(
       builder: (context, state) {
-        return Flexible(
-            flex: 2,
-            child: StaffInfoWidget(
-              staffInfo: staffInfo,
-            ));
+        return StaffInfoWidget(
+          staffInfo: staffInfo,
+        );
       },
     );
     final historyActivityWidget = BlocBuilder<
         CentralizedHumanResourceManagementBloc,
         CentralizedHumanResourceManagementState>(
       builder: (context, state) {
-        return Flexible(
-            flex: 4,
-            child: HistoryActivityWidget(
-              listActivity: timeLine,
-            ));
+        return HistoryActivityWidget(
+          listActivity: timeLine,
+        );
       },
     );
     final workInfoWidget = BlocBuilder<CentralizedHumanResourceManagementBloc,
         CentralizedHumanResourceManagementState>(
       builder: (context, state) {
-        return Flexible(
-            flex: 2,
-            child: WorkInfoAndProjectInfoWidget(
-              staffInfo: staffInfo,
-            ));
+        return WorkInfoAndProjectInfoWidget(
+          staffInfo: staffInfo,
+        );
       },
     );
 
@@ -150,14 +144,31 @@ class _CentralizedHumanResourceManagementStateScreenState
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               titlePage,
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              ResponsiveRowColumn(
+                layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                    ? ResponsiveRowColumnType.COLUMN
+                    : ResponsiveRowColumnType.ROW,
+                columnMainAxisSize: MainAxisSize.min,
+                columnMainAxisAlignment: MainAxisAlignment.start,
+                columnCrossAxisAlignment: CrossAxisAlignment.start,
+                rowMainAxisAlignment: MainAxisAlignment.start,
+                rowCrossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  staffInfoWidget,
-                  historyActivityWidget,
-                  workInfoWidget,
+                  ResponsiveRowColumnItem(
+                    columnFlex: 2,
+                    rowFlex: 2,
+                    child: staffInfoWidget,
+                  ),
+                  ResponsiveRowColumnItem(
+                    columnFlex: 4,
+                    rowFlex: 4,
+                    child: historyActivityWidget,
+                  ),
+                  ResponsiveRowColumnItem(
+                    columnFlex: 2,
+                    rowFlex: 2,
+                    child: workInfoWidget,
+                  )
                 ],
               ),
             ],
