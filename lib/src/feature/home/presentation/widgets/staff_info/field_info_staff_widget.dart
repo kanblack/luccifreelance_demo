@@ -11,8 +11,8 @@ class FieldInfoStaffWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final paddingSmall = SizedBox(
-      height: AppDimensPadding.normalPadding,
+    const padding = SizedBox(
+      height: AppDimensPadding.smallPadding,
     );
     return Padding(
       padding: const EdgeInsets.only(bottom: AppDimensPadding.contentPadding),
@@ -24,7 +24,7 @@ class FieldInfoStaffWidget extends StatelessWidget {
             title,
             style: AppTextStyle.heading3,
           ),
-          paddingSmall,
+          padding,
           Text(
             content,
             style: AppTextStyle.body1Medium,

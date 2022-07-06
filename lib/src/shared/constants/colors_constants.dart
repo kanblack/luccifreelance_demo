@@ -10,3 +10,4 @@ const avatarBackground = Colors.blue;
 const logoBackground = Color(0xFF418EA5);
 const whiteBackground = Colors.white;
 const back12Background = Color(0xFFF5F8F8);
+const dividerColor = Color(0xFFE7EBEE);
