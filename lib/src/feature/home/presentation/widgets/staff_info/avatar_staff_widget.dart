@@ -19,10 +19,11 @@ class AvatarStaffWidget extends StatelessWidget {
     const normalPadding = SizedBox(
       width: AppDimensPadding.normalPadding,
     );
-    final avatarStaff = CircleAvatar(
+    const avatarStaff = CircleAvatar(
       backgroundColor: shadowColor,
       radius: AppAvatarSize.normalSize,
-      child: Image.network("https://i.pravatar.cc/300"),
+      backgroundImage:
+          NetworkImage("https://faces-img.xcdn.link/image-lorem-face-3594.jpg"),
     );
     final staffInfoWidget = Column(
       crossAxisAlignment: CrossAxisAlignment.start,

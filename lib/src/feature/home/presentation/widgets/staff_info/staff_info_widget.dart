@@ -37,8 +37,11 @@ class StaffInfoWidget extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         var size = MediaQuery.of(context).size;
         return Container(
+          padding: EdgeInsets.only(left: AppDimensPadding.tinyPadding),
           height: size.height * 1.14,
-          decoration: const BoxDecoration(color: back12Background),
+          decoration: const BoxDecoration(
+            color: back12Background,
+          ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

@@ -27,11 +27,11 @@ class _AvatarAppBarWidgetState extends State<AvatarAppBarWidget> {
           color: Colors.white,
         )),
   );
-  final avatar = CircleAvatar(
+  final avatar = const CircleAvatar(
     radius: AppAvatarSize.smallSize,
     backgroundColor: Colors.blue,
-    child:
-        Image.network("https://faces-img.xcdn.link/image-lorem-face-4198.jpg"),
+    backgroundImage:
+        NetworkImage("https://faces-img.xcdn.link/image-lorem-face-4198.jpg"),
   );
   final userName = ResponsiveVisibility(
     visible: false,
@@ -59,6 +59,7 @@ class _AvatarAppBarWidgetState extends State<AvatarAppBarWidget> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         iconNotification,
+        smallPadding,
         avatar,
         smallPadding,
         userName,

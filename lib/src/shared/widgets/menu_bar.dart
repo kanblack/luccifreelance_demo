@@ -14,6 +14,12 @@ class MenuBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const padding = SizedBox(
+      width: AppDimensPadding.normalPadding,
+    );
+    const paddingTiny = SizedBox(
+      width: AppDimensPadding.tinyPadding,
+    );
     final logo = ResponsiveVisibility(
       visible: false,
       visibleWhen: const [Condition.largerThan(name: MOBILE)],
@@ -22,8 +28,9 @@ class MenuBarWidget extends StatelessWidget {
         child: GestureDetector(
           onTap: () {},
           child: Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: AppDimensPadding.contentPadding),
+            padding: const EdgeInsets.all(
+              AppDimensPadding.smallPadding,
+            ),
             decoration: BoxDecoration(
                 color: logoBackground, borderRadius: BorderRadius.circular(15)),
             child: const Text(
@@ -106,8 +113,11 @@ class MenuBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          paddingTiny,
           logo,
+          padding,
           responsiveProjectAndDepartment,
+          padding,
           responsiveHumaneAndConfig,
           const Spacer(),
           avatarUserWidget
