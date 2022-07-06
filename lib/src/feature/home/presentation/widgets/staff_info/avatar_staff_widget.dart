@@ -21,6 +21,9 @@ class AvatarStaffWidget extends StatelessWidget {
     const normalPadding = SizedBox(
       width: AppDimensPadding.normalPadding,
     );
+    const heightTinyPadding = SizedBox(
+      height: AppDimensPadding.tinyPadding,
+    );
     const avatarStaff = CircleAvatar(
       backgroundColor: shadowColor,
       radius: AppAvatarSize.normalSize,
@@ -32,9 +35,12 @@ class AvatarStaffWidget extends StatelessWidget {
       children: [
         Text(
           staffInfo?.getStaffName() ?? "",
-          style: AppTextStyle.heading3Bold,
+          style: AppTextStyle.heading1Bold,
         ),
+        heightTinyPadding,
+        heightTinyPadding,
         Text(staffInfo?.chucVu ?? "", style: AppTextStyle.body1),
+        heightTinyPadding,
         Text(getStatusEnum(staffInfo?.trangThai ?? StatusEnum.unKnow),
             style: AppTextStyle.body1)
       ],
@@ -51,6 +57,7 @@ class AvatarStaffWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 avatarStaff,
+                tinyPadding,
                 tinyPadding,
                 Expanded(child: staffInfoWidget)
               ],

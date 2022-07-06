@@ -159,18 +159,13 @@ class _CentralizedHumanResourceManagementStateScreenState
                 rowCrossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ResponsiveRowColumnItem(
-                    columnFlex: 2,
-                    rowFlex: 2,
                     child: staffInfoWidget,
                   ),
                   ResponsiveRowColumnItem(
-                    columnFlex: 4,
-                    rowFlex: 4,
+                    rowFit: FlexFit.loose,
                     child: historyActivityWidget,
                   ),
                   ResponsiveRowColumnItem(
-                    columnFlex: 2,
-                    rowFlex: 2,
                     child: workInfoWidget,
                   )
                 ],

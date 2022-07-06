@@ -39,6 +39,7 @@ class StaffInfoWidget extends StatelessWidget {
         return Container(
           padding: EdgeInsets.only(left: AppDimensPadding.tinyPadding),
           height: size.height * 1.14,
+          width: 400,
           decoration: const BoxDecoration(
               color: back12Background,
               border: Border(right: BorderSide(color: borderColor))),

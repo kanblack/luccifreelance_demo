@@ -81,11 +81,12 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
         var size = MediaQuery.of(context).size;
         return Container(
           height: size.height * 1.14,
+          width: 400,
           padding: const EdgeInsets.symmetric(
               horizontal: AppDimensPadding.contentPadding),
           decoration: const BoxDecoration(
               color: back12Background,
-              border: Border(right: BorderSide(color: borderColor))),
+              border: Border(left: BorderSide(color: borderColor))),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
