@@ -12,10 +12,10 @@ class ActivityAtTimeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final paddingLarger = SizedBox(
+    const paddingLarger = SizedBox(
       height: AppDimensPadding.largePadding,
     );
-    final paddingNormal = SizedBox(
+    const paddingNormal = SizedBox(
       height: AppDimensPadding.normalPadding,
     );
 
@@ -27,7 +27,7 @@ class ActivityAtTimeWidget extends StatelessWidget {
     );
     final fieldAction = Container(
       width: double.infinity,
-      padding: EdgeInsets.all(AppDimensPadding.contentPadding),
+      padding: const EdgeInsets.all(AppDimensPadding.contentPadding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: back12Background,
