@@ -1,7 +1,9 @@
 import 'package:demo_luci_web/src/feature/home/domain/entities/staff_info.dart';
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
+import 'package:demo_luci_web/src/shared/constants/enums_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/imgs_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
+import 'package:demo_luci_web/src/shared/utils/enum_extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../shared/constants/colors_constants.dart';
@@ -33,7 +35,8 @@ class AvatarStaffWidget extends StatelessWidget {
           style: AppTextStyle.heading3Bold,
         ),
         Text(staffInfo?.chucVu ?? "", style: AppTextStyle.body1),
-        Text(staffInfo?.trangThai ?? "", style: AppTextStyle.body1)
+        Text(getStatusEnum(staffInfo?.trangThai ?? StatusEnum.unKnow),
+            style: AppTextStyle.body1)
       ],
     );
     const textButtonDropDown = DropDownSelectWidget();

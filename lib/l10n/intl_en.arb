@@ -31,6 +31,8 @@
   "lbl_delete_BDS_action": "Xoá thông tin bất động sản",
   "lbl_edit_BDS_action": "Sửa thông tin bất động sản",
   "lbl_add_BDS_action": "Thêm thông tin bất động sản",
-  "lbl_login_action": "Đăng nhập"
+  "lbl_login_action": "Đăng nhập",
+  "lbl_status_active": "Đang hoạt động"
+
 
 }
