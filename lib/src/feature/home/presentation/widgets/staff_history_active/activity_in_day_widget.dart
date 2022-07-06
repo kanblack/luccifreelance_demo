@@ -1,3 +1,4 @@
+import 'package:demo_luci_web/src/feature/home/domain/entities/group_time_line.dart';
 import 'package:demo_luci_web/src/shared/constants/colors_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
@@ -6,49 +7,49 @@ import 'package:flutter/material.dart';
 import 'activity_at_time_widget.dart';
 
 class ActivityDayWidget extends StatelessWidget {
-  final String time;
-  final List<String> action;
-  const ActivityDayWidget({Key? key, required this.time, required this.action})
-      : super(key: key);
+  final GroupTimeLine? timeLine;
+  const ActivityDayWidget({Key? key, this.timeLine}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final paddingLarger = SizedBox(
+    const paddingLarger = SizedBox(
       height: AppDimensPadding.largePadding,
     );
-    final paddingSmall = SizedBox(
+    const paddingSmall = SizedBox(
       height: AppDimensPadding.smallPadding,
     );
     final titleDay = SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Icon(
+          const Icon(
             Icons.calendar_today_outlined,
             size: AppDimens.iconSmallSize,
             color: textNormal,
           ),
           Text(
-            time,
+            timeLine?.createdAt.toString() ?? "",
             style: AppTextStyle.body1Medium,
           )
         ],
       ),
     );
-    final listAction = ListView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) {
-        return ActivityAtTimeWidget(
-          time: '16:30:24, 16/02/200',
-          contentActivity: 'Chinh sua bat dong san',
-        );
-      },
-      itemCount: 2,
-    );
+    final listAction = timeLine != null
+        ? ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return ActivityAtTimeWidget(
+                time: timeLine?.timeLine[index].createdAt ?? "",
+                contentActivity: timeLine?.timeLine[index].actionType ?? "",
+              );
+            },
+            itemCount: timeLine?.timeLine.length,
+          )
+        : Container();
     return Container(
-      padding:
-          EdgeInsets.symmetric(horizontal: AppDimensPadding.contentPadding),
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppDimensPadding.contentPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [paddingSmall, titleDay, paddingLarger, listAction],

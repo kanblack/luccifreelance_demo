@@ -1,4 +1,3 @@
-import 'package:demo_luci_web/src/shared/constants/colors_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
