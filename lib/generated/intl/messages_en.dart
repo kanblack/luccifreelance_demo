@@ -22,7 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "lbl_accessed_features": MessageLookupByLibrary.simpleMessage(
+            "Các module, tính năng được phép truy cập"),
         "lbl_address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
+        "lbl_all": MessageLookupByLibrary.simpleMessage("Tat ca"),
+        "lbl_authority": MessageLookupByLibrary.simpleMessage("Quyền hạn"),
         "lbl_centralized_department_management":
             MessageLookupByLibrary.simpleMessage("Quản lý bộ phân tập trung"),
         "lbl_centralized_human_resource_management":
@@ -31,8 +35,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "lbl_configuration": MessageLookupByLibrary.simpleMessage("Cấu hình"),
         "lbl_date_range": MessageLookupByLibrary.simpleMessage("Ngày cấp"),
         "lbl_day_of_birth": MessageLookupByLibrary.simpleMessage("Ngày sinh"),
+        "lbl_decentralization":
+            MessageLookupByLibrary.simpleMessage("Phân quyền"),
+        "lbl_department": MessageLookupByLibrary.simpleMessage("Bộ phận"),
         "lbl_email": MessageLookupByLibrary.simpleMessage("Email"),
         "lbl_gender": MessageLookupByLibrary.simpleMessage("Giới tính"),
+        "lbl_history_activity":
+            MessageLookupByLibrary.simpleMessage("Lich Su Hoat Dong"),
         "lbl_id_card":
             MessageLookupByLibrary.simpleMessage("CMND/CCCD/Hộ chiếu"),
         "lbl_note": MessageLookupByLibrary.simpleMessage("Ghi chú"),
@@ -41,11 +50,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Số điện thoại"),
         "lbl_place_for_identity_card":
             MessageLookupByLibrary.simpleMessage("Nơi cấp"),
+        "lbl_project": MessageLookupByLibrary.simpleMessage("Dự án "),
+        "lbl_project_in_charge_and_decentralization":
+            MessageLookupByLibrary.simpleMessage(
+                "Phụ trách dự án và phân quyền"),
         "lbl_project_management":
             MessageLookupByLibrary.simpleMessage("Quản lý dự án"),
+        "lbl_search_action":
+            MessageLookupByLibrary.simpleMessage("Tim kiem theo hanh dong"),
         "lbl_staff_code": MessageLookupByLibrary.simpleMessage("Mã Nhân Viên"),
+        "lbl_time": MessageLookupByLibrary.simpleMessage("Thoi gian"),
         "lbl_title_staff_info":
             MessageLookupByLibrary.simpleMessage("Thông tin nhân viên"),
-        "lbl_user_name": MessageLookupByLibrary.simpleMessage("Tên đăng nhập")
+        "lbl_user_name": MessageLookupByLibrary.simpleMessage("Tên đăng nhập"),
+        "lbl_work_info":
+            MessageLookupByLibrary.simpleMessage("Thông tin công việc")
       };
 }

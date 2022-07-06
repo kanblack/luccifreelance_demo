@@ -11,6 +11,12 @@ class AppDimens {
   static const buttonBorderWidth = 1.0;
   static const titleNoDataSize = 18.0;
   static const buttonSize = 20.0;
+  static const iconSmallSize = 20.0;
+  static const iconTiny = 10.0;
+  static const iconBigSize = 30.0;
+  static const heightTitlePage = 50.0;
+  static const heightFieldSearch = 30.0;
+  static const widthFieldSearch = 200.0;
 }
 
 class AppDimensPadding {

@@ -8,3 +8,5 @@ const textNormal = Color(0xFF232222);
 const textButton = Color(0xFFFF0000);
 const avatarBackground = Colors.blue;
 const logoBackground = Color(0xFF418EA5);
+const whiteBackground = Colors.white;
+const back12Background = Colors.black12;

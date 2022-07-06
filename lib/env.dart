@@ -1,1 +1,1 @@
-const BASE_URL = "";
+const BASE_URL = "https://pastebin.com/raw";
