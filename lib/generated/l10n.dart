@@ -219,6 +219,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Thông tin công việc`
+  String get lbl_work_info {
+    return Intl.message(
+      'Thông tin công việc',
+      name: 'lbl_work_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bộ phận`
+  String get lbl_department {
+    return Intl.message(
+      'Bộ phận',
+      name: 'lbl_department',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quyền hạn`
+  String get lbl_authority {
+    return Intl.message(
+      'Quyền hạn',
+      name: 'lbl_authority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phụ trách dự án và phân quyền`
+  String get lbl_project_in_charge_and_decentralization {
+    return Intl.message(
+      'Phụ trách dự án và phân quyền',
+      name: 'lbl_project_in_charge_and_decentralization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dự án `
+  String get lbl_project {
+    return Intl.message(
+      'Dự án ',
+      name: 'lbl_project',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phân quyền`
+  String get lbl_decentralization {
+    return Intl.message(
+      'Phân quyền',
+      name: 'lbl_decentralization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Các module, tính năng được phép truy cập`
+  String get lbl_accessed_features {
+    return Intl.message(
+      'Các module, tính năng được phép truy cập',
+      name: 'lbl_accessed_features',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tim kiem theo hanh dong`
+  String get lbl_search_action {
+    return Intl.message(
+      'Tim kiem theo hanh dong',
+      name: 'lbl_search_action',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thoi gian`
+  String get lbl_time {
+    return Intl.message(
+      'Thoi gian',
+      name: 'lbl_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tat ca`
+  String get lbl_all {
+    return Intl.message(
+      'Tat ca',
+      name: 'lbl_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lich Su Hoat Dong`
+  String get lbl_history_activity {
+    return Intl.message(
+      'Lich Su Hoat Dong',
+      name: 'lbl_history_activity',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

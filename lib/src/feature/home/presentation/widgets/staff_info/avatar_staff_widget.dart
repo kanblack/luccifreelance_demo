@@ -13,6 +13,9 @@ class AvatarStaffWidget extends StatelessWidget {
     const tinyPadding = SizedBox(
       width: AppDimensPadding.smallPadding,
     );
+    const normalPadding = SizedBox(
+      width: AppDimensPadding.normalPadding,
+    );
     final avatarStaff = CircleAvatar(
       backgroundColor: shadowColor,
       radius: AppAvatarSize.normalSize,
@@ -39,7 +42,8 @@ class AvatarStaffWidget extends StatelessWidget {
           avatarStaff,
           tinyPadding,
           Expanded(child: staffInfo),
-          Expanded(child: textButtonDropDown)
+          normalPadding,
+          textButtonDropDown
         ],
       ),
     );
