@@ -27,7 +27,7 @@ class ActivityAtTimeWidget extends StatelessWidget {
     );
     final fieldAction = Container(
       width: double.infinity,
-      padding: EdgeInsets.all(AppDimensPadding.contentPadding),
+      padding: const EdgeInsets.all(AppDimensPadding.contentPadding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: back12Background,

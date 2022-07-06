@@ -24,7 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "lbl_accessed_features": MessageLookupByLibrary.simpleMessage(
             "Các module, tính năng được phép truy cập"),
-        "lbl_add_BDS_action": MessageLookupByLibrary.simpleMessage("Thêm BDS"),
+        "lbl_add_BDS_action":
+            MessageLookupByLibrary.simpleMessage("Thêm thông tin bất động sản"),
         "lbl_address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
         "lbl_all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "lbl_authority": MessageLookupByLibrary.simpleMessage("Quyền hạn"),
@@ -39,9 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "lbl_decentralization":
             MessageLookupByLibrary.simpleMessage("Phân quyền"),
         "lbl_delete_BDS_action":
-            MessageLookupByLibrary.simpleMessage("Xoá BDS"),
+            MessageLookupByLibrary.simpleMessage("Xoá thông tin bất động sản"),
         "lbl_department": MessageLookupByLibrary.simpleMessage("Bộ phận"),
-        "lbl_edit_BDS_action": MessageLookupByLibrary.simpleMessage("Sửa BDS"),
+        "lbl_edit_BDS_action":
+            MessageLookupByLibrary.simpleMessage("Sửa thông tin bất động sản"),
         "lbl_email": MessageLookupByLibrary.simpleMessage("Email"),
         "lbl_gender": MessageLookupByLibrary.simpleMessage("Giới tính"),
         "lbl_history_activity":

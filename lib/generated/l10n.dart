@@ -330,30 +330,30 @@ class S {
     );
   }
 
-  /// `Xoá BDS`
+  /// `Xoá thông tin bất động sản`
   String get lbl_delete_BDS_action {
     return Intl.message(
-      'Xoá BDS',
+      'Xoá thông tin bất động sản',
       name: 'lbl_delete_BDS_action',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sửa BDS`
+  /// `Sửa thông tin bất động sản`
   String get lbl_edit_BDS_action {
     return Intl.message(
-      'Sửa BDS',
+      'Sửa thông tin bất động sản',
       name: 'lbl_edit_BDS_action',
       desc: '',
       args: [],
     );
   }
 
-  /// `Thêm BDS`
+  /// `Thêm thông tin bất động sản`
   String get lbl_add_BDS_action {
     return Intl.message(
-      'Thêm BDS',
+      'Thêm thông tin bất động sản',
       name: 'lbl_add_BDS_action',
       desc: '',
       args: [],
