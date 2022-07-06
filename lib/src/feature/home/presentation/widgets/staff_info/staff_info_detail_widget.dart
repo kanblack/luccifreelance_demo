@@ -1,3 +1,4 @@
+import 'package:demo_luci_web/src/feature/home/domain/entities/staff_info.dart';
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -5,53 +6,54 @@ import '../../../../../../generated/l10n.dart';
 import 'field_info_staff_widget.dart';
 
 class StaffInfoDetailWidget extends StatelessWidget {
-  const StaffInfoDetailWidget({Key? key}) : super(key: key);
+  final StaffInfo? staffInfo;
+  const StaffInfoDetailWidget({Key? key, this.staffInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final staffCode = FieldInfoStaffWidget(
       title: S.current.lbl_staff_code,
-      content: "GCH18133",
+      content: staffInfo?.maNhanVien ?? "",
     );
     final userName = FieldInfoStaffWidget(
       title: S.current.lbl_user_name,
-      content: "thangpn",
+      content: staffInfo?.tenDangNhap ?? "",
     );
     final email = FieldInfoStaffWidget(
       title: S.current.lbl_email,
-      content: "thangpn0207@gmail.com",
+      content: staffInfo?.email ?? "",
     );
     final phoneNumber = FieldInfoStaffWidget(
       title: S.current.lbl_phone_number,
-      content: "09184174294",
+      content: staffInfo?.sdt ?? "",
     );
     final dateOfBirth = FieldInfoStaffWidget(
       title: S.current.lbl_day_of_birth,
-      content: "02/07/2002",
+      content: staffInfo?.ngaySinh ?? "",
     );
     final gender = FieldInfoStaffWidget(
       title: S.current.lbl_gender,
-      content: "Nam",
+      content: staffInfo?.gioiTinh ?? "",
     );
     final address = FieldInfoStaffWidget(
       title: S.current.lbl_address,
-      content: "Trần Thái Thông",
+      content: staffInfo?.diaChi ?? "",
     );
     final idCard = FieldInfoStaffWidget(
       title: S.current.lbl_id_card,
-      content: "1239746174910",
+      content: staffInfo?.authorityInfo.maGiayTo ?? "",
     );
     final dateRange = FieldInfoStaffWidget(
       title: S.current.lbl_date_range,
-      content: "02/09/2011",
+      content: staffInfo?.authorityInfo.ngayCap ?? "",
     );
     final placeForIdentityCard = FieldInfoStaffWidget(
       title: S.current.lbl_place_for_identity_card,
-      content: "Hà Nội",
+      content: staffInfo?.authorityInfo.noiCap ?? "",
     );
     final note = FieldInfoStaffWidget(
       title: S.current.lbl_note,
-      content: "Quản lý bản thân",
+      content: staffInfo?.note ?? "",
     );
     return Container(
       padding: const EdgeInsets.symmetric(

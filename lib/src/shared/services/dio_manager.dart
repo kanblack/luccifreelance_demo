@@ -32,32 +32,29 @@ class DioManager {
     dio = Dio(options);
     dio.interceptors
         .add(InterceptorsWrapper(onRequest: (option, handler) async {
-      bool isConnected = await networkInfo.isConnected;
-      if (isConnected) {
-        final tokens =
-            (await localService.getAuthInfo()).fold((l) => null, (r) => r);
-        // if (tokens != null) {
-        //   if (option.path == '/auth/refresh') {
-        //     option.headers['Authorization'] = 'Bearer ${tokens.accessToken}';
-        //   } else {
-        //     bool hasExpired = JwtDecoder.isExpired(tokens.accessToken);
-        //     if (hasExpired) {
-        //       final newTokens = (await refreshToken(tokens.refreshToken))
-        //           .fold((l) => null, (r) => r);
-        //       if (newTokens != null) {
-        //         option.headers['Authorization'] =
-        //             'Bearer ${newTokens.accessToken}';
-        //       }
-        //     } else {
-        //       option.headers['Authorization'] = 'Bearer ${tokens.accessToken}';
-        //     }
-        //   }
-        // }
-        // TODO: Fake access token
-        // option.headers['Authorization'] =
-        //     'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiY3VzdG9tZXIiLCJmaXJzdE5hbWUiOiJIdW5nIiwibGFzdE5hbWUiOiJMZSIsImVtYWlsIjoiaGFjdGlldWhvOTZAZ21haWwuY29tIiwidXVpZCI6IjY0ZDRlNjZiLWZmMDAtNGFlMC04YTQwLTJlZTI5M2FlNDA3NyIsInN1YiI6NSwiaWF0IjoxNjQ4MDA4NDcwLCJleHAiOjE2NDgwOTQ4NzB9.eLMDcAjncLynklC_irVO5QvvnKzmGzZQdiIdKwK4Vdo';
-        return handler.next(option);
-      }
+      // final tokens =
+      //     (await localService.getAuthInfo()).fold((l) => null, (r) => r);
+      // if (tokens != null) {
+      //   if (option.path == '/auth/refresh') {
+      //     option.headers['Authorization'] = 'Bearer ${tokens.accessToken}';
+      //   } else {
+      //     bool hasExpired = JwtDecoder.isExpired(tokens.accessToken);
+      //     if (hasExpired) {
+      //       final newTokens = (await refreshToken(tokens.refreshToken))
+      //           .fold((l) => null, (r) => r);
+      //       if (newTokens != null) {
+      //         option.headers['Authorization'] =
+      //             'Bearer ${newTokens.accessToken}';
+      //       }
+      //     } else {
+      //       option.headers['Authorization'] = 'Bearer ${tokens.accessToken}';
+      //     }
+      //   }
+      // }
+      // TODO: Fake access token
+      // option.headers['Authorization'] =
+      //     'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiY3VzdG9tZXIiLCJmaXJzdE5hbWUiOiJIdW5nIiwibGFzdE5hbWUiOiJMZSIsImVtYWlsIjoiaGFjdGlldWhvOTZAZ21haWwuY29tIiwidXVpZCI6IjY0ZDRlNjZiLWZmMDAtNGFlMC04YTQwLTJlZTI5M2FlNDA3NyIsInN1YiI6NSwiaWF0IjoxNjQ4MDA4NDcwLCJleHAiOjE2NDgwOTQ4NzB9.eLMDcAjncLynklC_irVO5QvvnKzmGzZQdiIdKwK4Vdo';
+      return handler.next(option);
     }, onResponse: (response, handler) async {
       return handler.next(response);
     }, onError: (error, handler) async {
