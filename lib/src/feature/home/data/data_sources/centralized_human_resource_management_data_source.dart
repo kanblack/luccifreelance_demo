@@ -6,12 +6,14 @@ import 'package:demo_luci_web/src/feature/home/domain/entities/project.dart';
 import 'package:demo_luci_web/src/feature/home/domain/entities/staff_info.dart';
 import 'package:demo_luci_web/src/feature/home/domain/entities/time_line.dart';
 import 'package:demo_luci_web/src/feature/home/domain/entities/work_info.dart';
+import 'package:demo_luci_web/src/shared/constants/enums_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../shared/error/failures.dart';
 import '../../../../shared/network/network_info.dart';
 import '../../../../shared/services/rest_api_service.dart';
+import '../../../../shared/utils/enum_extension.dart';
 import '../../domain/entities/group_time_line.dart';
 
 class CentralizedHumanResourceManagementDataSource {
@@ -97,9 +99,10 @@ class CentralizedHumanResourceManagementDataSource {
       return TimeLine(
           timeLineResponsive.id ?? "",
           timeLineResponsive.createdAt ?? "",
-          timeLineResponsive.actionType ?? "");
+          actionTypeEnums[timeLineResponsive.actionType] ??
+              ActionTypeEnum.unKnow);
     } else {
-      return TimeLine("", "", "");
+      return TimeLine("", "", ActionTypeEnum.unKnow);
     }
   }
 
@@ -186,15 +189,17 @@ class CentralizedHumanResourceManagementDataSource {
     List<GroupTimeLine> groupLine = [];
     if (list.isNotEmpty) {
       DateTime currentTime = DateFormat("yyyy-MM-dd").parse(list[0].createdAt);
-      print(currentTime.toString());
       GroupTimeLine current = GroupTimeLine(currentTime, []);
       for (var element in list) {
         DateTime time = DateFormat("yyyy-MM-dd").parse(element.createdAt);
-        if (time == currentTime) {
+        if (time.isAtSameMomentAs(currentTime)) {
           current.timeLine.add(element);
+          if (element == list.last) {
+            groupLine.add(current);
+          }
         } else {
           groupLine.add(current);
-          current = GroupTimeLine(time, []);
+          current = GroupTimeLine(time, [element]);
           currentTime = time;
         }
       }

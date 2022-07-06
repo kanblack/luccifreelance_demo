@@ -24,8 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "lbl_accessed_features": MessageLookupByLibrary.simpleMessage(
             "Các module, tính năng được phép truy cập"),
+        "lbl_add_BDS_action": MessageLookupByLibrary.simpleMessage("Thêm BDS"),
         "lbl_address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
-        "lbl_all": MessageLookupByLibrary.simpleMessage("Tat ca"),
+        "lbl_all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "lbl_authority": MessageLookupByLibrary.simpleMessage("Quyền hạn"),
         "lbl_centralized_department_management":
             MessageLookupByLibrary.simpleMessage("Quản lý bộ phân tập trung"),
@@ -37,13 +38,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "lbl_day_of_birth": MessageLookupByLibrary.simpleMessage("Ngày sinh"),
         "lbl_decentralization":
             MessageLookupByLibrary.simpleMessage("Phân quyền"),
+        "lbl_delete_BDS_action":
+            MessageLookupByLibrary.simpleMessage("Xoá BDS"),
         "lbl_department": MessageLookupByLibrary.simpleMessage("Bộ phận"),
+        "lbl_edit_BDS_action": MessageLookupByLibrary.simpleMessage("Sửa BDS"),
         "lbl_email": MessageLookupByLibrary.simpleMessage("Email"),
         "lbl_gender": MessageLookupByLibrary.simpleMessage("Giới tính"),
         "lbl_history_activity":
-            MessageLookupByLibrary.simpleMessage("Lich Su Hoat Dong"),
+            MessageLookupByLibrary.simpleMessage("Lịch Sử Hoạt Động"),
         "lbl_id_card":
             MessageLookupByLibrary.simpleMessage("CMND/CCCD/Hộ chiếu"),
+        "lbl_login_action": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "lbl_note": MessageLookupByLibrary.simpleMessage("Ghi chú"),
         "lbl_option": MessageLookupByLibrary.simpleMessage("Tùy chọn"),
         "lbl_phone_number":
@@ -57,9 +62,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "lbl_project_management":
             MessageLookupByLibrary.simpleMessage("Quản lý dự án"),
         "lbl_search_action":
-            MessageLookupByLibrary.simpleMessage("Tim kiem theo hanh dong"),
+            MessageLookupByLibrary.simpleMessage("Tìm kiếm theo hành động"),
         "lbl_staff_code": MessageLookupByLibrary.simpleMessage("Mã Nhân Viên"),
-        "lbl_time": MessageLookupByLibrary.simpleMessage("Thoi gian"),
+        "lbl_time": MessageLookupByLibrary.simpleMessage("Thời gian"),
         "lbl_title_staff_info":
             MessageLookupByLibrary.simpleMessage("Thông tin nhân viên"),
         "lbl_user_name": MessageLookupByLibrary.simpleMessage("Tên đăng nhập"),

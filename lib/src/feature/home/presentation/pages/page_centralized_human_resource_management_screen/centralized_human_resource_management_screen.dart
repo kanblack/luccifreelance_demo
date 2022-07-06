@@ -4,6 +4,7 @@ import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../../../generated/l10n.dart';
 import '../../../../../../injection_container.dart';
@@ -158,7 +159,7 @@ class _CentralizedHumanResourceManagementStateScreenState
                   historyActivityWidget,
                   workInfoWidget,
                 ],
-              )
+              ),
             ],
           ),
         );

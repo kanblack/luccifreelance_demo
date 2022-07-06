@@ -120,7 +120,7 @@ class _CommonInputTextFormFieldState extends State<CommonInputTextFormField> {
         autovalidateMode: AutovalidateMode.disabled,
         readOnly: isReadOnly,
         focusNode: widget.focusNode,
-        style: AppTextStyle.caption1.copyWith(fontSize: 10),
+        style: AppTextStyle.caption1.copyWith(fontSize: 12),
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(AppDimensPadding.tinyPadding),
             suffixIcon: !isReadOnly ? suffixIcon : null,

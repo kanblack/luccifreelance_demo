@@ -24,11 +24,13 @@
   "lbl_project": "Dự án ",
   "lbl_decentralization": "Phân quyền",
   "lbl_accessed_features": "Các module, tính năng được phép truy cập",
-  "lbl_search_action": "Tim kiem theo hanh dong",
-  "lbl_time": "Thoi gian",
-  "lbl_all": "Tat ca",
-  "lbl_history_activity": "Lich Su Hoat Dong"
-
-
+  "lbl_search_action": "Tìm kiếm theo hành động",
+  "lbl_time": "Thời gian",
+  "lbl_all": "Tất cả",
+  "lbl_history_activity": "Lịch Sử Hoạt Động",
+  "lbl_delete_BDS_action": "Xoá BDS",
+  "lbl_edit_BDS_action": "Sửa BDS",
+  "lbl_add_BDS_action": "Thêm BDS",
+  "lbl_login_action": "Đăng nhập"
 
 }

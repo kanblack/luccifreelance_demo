@@ -290,41 +290,81 @@ class S {
     );
   }
 
-  /// `Tim kiem theo hanh dong`
+  /// `Tìm kiếm theo hành động`
   String get lbl_search_action {
     return Intl.message(
-      'Tim kiem theo hanh dong',
+      'Tìm kiếm theo hành động',
       name: 'lbl_search_action',
       desc: '',
       args: [],
     );
   }
 
-  /// `Thoi gian`
+  /// `Thời gian`
   String get lbl_time {
     return Intl.message(
-      'Thoi gian',
+      'Thời gian',
       name: 'lbl_time',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tat ca`
+  /// `Tất cả`
   String get lbl_all {
     return Intl.message(
-      'Tat ca',
+      'Tất cả',
       name: 'lbl_all',
       desc: '',
       args: [],
     );
   }
 
-  /// `Lich Su Hoat Dong`
+  /// `Lịch Sử Hoạt Động`
   String get lbl_history_activity {
     return Intl.message(
-      'Lich Su Hoat Dong',
+      'Lịch Sử Hoạt Động',
       name: 'lbl_history_activity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Xoá BDS`
+  String get lbl_delete_BDS_action {
+    return Intl.message(
+      'Xoá BDS',
+      name: 'lbl_delete_BDS_action',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sửa BDS`
+  String get lbl_edit_BDS_action {
+    return Intl.message(
+      'Sửa BDS',
+      name: 'lbl_edit_BDS_action',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thêm BDS`
+  String get lbl_add_BDS_action {
+    return Intl.message(
+      'Thêm BDS',
+      name: 'lbl_add_BDS_action',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Đăng nhập`
+  String get lbl_login_action {
+    return Intl.message(
+      'Đăng nhập',
+      name: 'lbl_login_action',
       desc: '',
       args: [],
     );

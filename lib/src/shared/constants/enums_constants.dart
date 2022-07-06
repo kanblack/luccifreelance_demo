@@ -1,6 +1,1 @@
-enum AuthenticationStatus {
-  unknown,
-  authenticated,
-  unauthenticated,
-  unRegisterFCM
-}
+enum ActionTypeEnum { deleteBDSInfo, editBDSInfo, addNewBDSInfo, login, unKnow }
