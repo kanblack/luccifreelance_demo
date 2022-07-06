@@ -18,7 +18,7 @@ class MenuBarWidget extends StatelessWidget {
       width: AppDimensPadding.normalPadding,
     );
     const paddingTiny = SizedBox(
-      width: AppDimensPadding.tinyPadding,
+      width: AppDimensPadding.normalPadding,
     );
     final logo = ResponsiveVisibility(
       visible: false,
@@ -91,6 +91,7 @@ class MenuBarWidget extends StatelessWidget {
           : ResponsiveRowColumnType.ROW,
       rowMainAxisAlignment: MainAxisAlignment.center,
       rowCrossAxisAlignment: CrossAxisAlignment.center,
+      columnMainAxisAlignment: MainAxisAlignment.center,
       children: [projectManagerButton, centralizedDepartmentManagement],
     );
     final responsiveHumaneAndConfig = ResponsiveRowColumn(
@@ -99,9 +100,14 @@ class MenuBarWidget extends StatelessWidget {
           : ResponsiveRowColumnType.ROW,
       rowMainAxisAlignment: MainAxisAlignment.center,
       rowCrossAxisAlignment: CrossAxisAlignment.center,
+      columnMainAxisAlignment: MainAxisAlignment.center,
       children: [centralizedHumanResourceManagement, configuration],
     );
-    const avatarUserWidget = AvatarAppBarWidget();
+    const avatarUserWidget = ResponsiveVisibility(
+      visible: false,
+      visibleWhen: const [Condition.largerThan(name: MOBILE)],
+      child: AvatarAppBarWidget(),
+    );
     return Container(
       decoration: const BoxDecoration(color: appBarColor, boxShadow: [
         BoxShadow(color: shadowColor, offset: Offset(0, 2), blurRadius: 4)

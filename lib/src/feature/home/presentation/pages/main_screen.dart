@@ -3,6 +3,7 @@ import 'package:demo_luci_web/src/shared/blocs_app/route_page_cubit/route_page_c
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../shared/widgets/menu_bar.dart';
 
@@ -17,9 +18,12 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(AppDimens.heightAppBar),
-          child: MenuBarWidget()),
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(
+              ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+                  ? AppDimens.heightMobileAppBar
+                  : AppDimens.heightAppBar),
+          child: const MenuBarWidget()),
       body: BlocBuilder<RoutePageCubit, RoutePageState>(
         builder: (context, state) {
           if (state is RoutePageProjectManagement) {
