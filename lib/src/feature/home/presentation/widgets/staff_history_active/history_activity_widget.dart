@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../generated/l10n.dart';
 import '../../../../../shared/constants/colors_constants.dart';
-import '../../../domain/entities/time_line.dart';
 
 class HistoryActivityWidget extends StatefulWidget {
-  const HistoryActivityWidget({Key? key}) : super(key: key);
+  final List<GroupTimeLine>? listActivity;
+  const HistoryActivityWidget({Key? key, this.listActivity}) : super(key: key);
 
   @override
   State<HistoryActivityWidget> createState() => _HistoryActivityWidgetState();
@@ -33,23 +33,29 @@ class _HistoryActivityWidgetState extends State<HistoryActivityWidget> {
     );
     const searchWidget = SearchHistoryWidget();
 
-    final listHisTory = ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return ActivityDayWidget();
-      },
-      itemCount: 2,
-    );
+    final listHisToryWidget = widget.listActivity != null
+        ? ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return ActivityDayWidget(
+                timeLine: widget.listActivity?[index],
+              );
+            },
+            itemCount: widget.listActivity?.length,
+          )
+        : const ActivityDayWidget();
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         var size = MediaQuery.of(context).size;
         return SizedBox(
           height: size.height * 1.14,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [titlePage, searchWidget, listHisTory],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [titlePage, searchWidget, listHisToryWidget],
+            ),
           ),
         );
       },

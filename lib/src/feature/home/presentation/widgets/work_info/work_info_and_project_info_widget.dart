@@ -9,8 +9,11 @@ import 'department_and_authority_widget.dart';
 import 'project_and_decentralization_widget.dart';
 
 class WorkInfoAndProjectInfoWidget extends StatelessWidget {
-  const WorkInfoAndProjectInfoWidget({Key? key,})
-      : super(key: key);
+  final StaffInfo? staffInfo;
+  const WorkInfoAndProjectInfoWidget({
+    Key? key,
+    this.staffInfo,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,30 +39,42 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
       authority: S.current.lbl_authority,
       isTitle: true,
     );
-    final listWorkInfo = ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) {
-        return DepartmentAndAuthorityWidget(
-          department:  "",
-          authority: "",
-          isTitle: false,
-        );
-      },
-      itemCount: 2,
-    );
-    final listProjectAndDecentralization = ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) {
-        return ProjectAndDecentralization(
-          decentralization: "",
-          projectNumber: "",
-          projectName:  "",
-        );
-      },
-      itemCount: 2,
-    );
+    final listWorkInfo = (staffInfo != null)
+        ? ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return DepartmentAndAuthorityWidget(
+                department: staffInfo?.workInfo[index].boPhan ?? "",
+                authority: staffInfo?.workInfo[index].quyenHan ?? "",
+                isTitle: false,
+              );
+            },
+            itemCount: staffInfo?.workInfo.length,
+          )
+        : const DepartmentAndAuthorityWidget(
+            department: "",
+            authority: "",
+            isTitle: false,
+          );
+    final listProjectAndDecentralization = (staffInfo != null)
+        ? ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              return ProjectAndDecentralization(
+                decentralization: staffInfo?.dsDuAn[index].role ?? "",
+                projectNumber: (index + 1).toString(),
+                projectName: staffInfo?.dsDuAn[index].role ?? "",
+              );
+            },
+            itemCount: staffInfo?.dsDuAn.length,
+          )
+        : const ProjectAndDecentralization(
+            decentralization: "",
+            projectNumber: "",
+            projectName: "",
+          );
     return LayoutBuilder(
       builder: (context, constraints) {
         var size = MediaQuery.of(context).size;
@@ -68,19 +83,21 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
               horizontal: AppDimensPadding.contentPadding),
           decoration: const BoxDecoration(color: back12Background),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              largerPadding,
-              titleWorkInfo,
-              largerPadding,
-              titleDepartmentAndAuthority,
-              listWorkInfo,
-              largerPadding,
-              titleProjectAndDecentralization,
-              listProjectAndDecentralization,
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                largerPadding,
+                titleWorkInfo,
+                largerPadding,
+                titleDepartmentAndAuthority,
+                listWorkInfo,
+                largerPadding,
+                titleProjectAndDecentralization,
+                listProjectAndDecentralization,
+              ],
+            ),
           ),
         );
       },

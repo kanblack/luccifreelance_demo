@@ -186,7 +186,7 @@ class CentralizedHumanResourceManagementDataSource {
     List<GroupTimeLine> groupLine = [];
     if (list.isNotEmpty) {
       DateTime currentTime = DateFormat("yyyy-MM-dd").parse(list[0].createdAt);
-
+      print(currentTime.toString());
       GroupTimeLine current = GroupTimeLine(currentTime, []);
       for (var element in list) {
         DateTime time = DateFormat("yyyy-MM-dd").parse(element.createdAt);

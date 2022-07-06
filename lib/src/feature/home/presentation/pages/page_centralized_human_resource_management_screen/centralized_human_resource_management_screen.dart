@@ -99,6 +99,27 @@ class _CentralizedHumanResourceManagementStateScreenState
             ));
       },
     );
+    final historyActivityWidget = BlocBuilder<
+        CentralizedHumanResourceManagementBloc,
+        CentralizedHumanResourceManagementState>(
+      builder: (context, state) {
+        return Flexible(
+            flex: 4,
+            child: HistoryActivityWidget(
+              listActivity: timeLine,
+            ));
+      },
+    );
+    final workInfoWidget = BlocBuilder<CentralizedHumanResourceManagementBloc,
+        CentralizedHumanResourceManagementState>(
+      builder: (context, state) {
+        return Flexible(
+            flex: 2,
+            child: WorkInfoAndProjectInfoWidget(
+              staffInfo: staffInfo,
+            ));
+      },
+    );
 
     return BlocConsumer<CentralizedHumanResourceManagementBloc,
         CentralizedHumanResourceManagementState>(
@@ -134,8 +155,8 @@ class _CentralizedHumanResourceManagementStateScreenState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   staffInfoWidget,
-                  Flexible(flex: 4, child: HistoryActivityWidget()),
-                  Flexible(flex: 2, child: WorkInfoAndProjectInfoWidget()),
+                  historyActivityWidget,
+                  workInfoWidget,
                 ],
               )
             ],
