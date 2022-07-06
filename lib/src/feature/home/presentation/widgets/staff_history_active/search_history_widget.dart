@@ -1,5 +1,6 @@
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../../../../generated/l10n.dart';
 import '../../../../../shared/component/input_text_field.dart';
@@ -18,11 +19,8 @@ class _SearchHistoryWidgetState extends State<SearchHistoryWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final smallPadding = SizedBox(
+    const smallPadding = SizedBox(
       width: AppDimensPadding.smallPadding,
-    );
-    final smallPaddingH = SizedBox(
-      height: AppDimensPadding.smallPadding,
     );
     final title = SizedBox(
       child: Text(
@@ -46,44 +44,40 @@ class _SearchHistoryWidgetState extends State<SearchHistoryWidget> {
         style: AppTextStyle.caption1,
       ),
     );
-    final buttonAll = MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () {},
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              S.current.lbl_all,
-              style: AppTextStyle.body1Medium.apply(color: textButton),
-              overflow: TextOverflow.ellipsis,
-            ),
-            Icon(
-              Icons.arrow_drop_down,
-              color: textButton,
-              size: AppDimens.iconSmallSize,
-            )
-          ],
+    final buttonAll = ResponsiveRowColumnItem(
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () {},
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              time,
+              smallPadding,
+              Text(
+                S.current.lbl_all,
+                style: AppTextStyle.body1Medium.apply(color: textButton),
+                overflow: TextOverflow.ellipsis,
+              ),
+              const Icon(
+                Icons.arrow_drop_down,
+                color: textButton,
+                size: AppDimens.iconSmallSize,
+              )
+            ],
+          ),
         ),
       ),
     );
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
           horizontal: AppDimensPadding.contentPadding,
           vertical: AppDimensPadding.contentPadding),
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          title,
-          smallPadding,
-          fieldSearch,
-          smallPadding,
-          time,
-          smallPadding,
-          buttonAll
-        ],
+        children: [title, smallPadding, fieldSearch, smallPadding, buttonAll],
       ),
     );
   }
