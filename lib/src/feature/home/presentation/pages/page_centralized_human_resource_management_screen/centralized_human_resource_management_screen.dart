@@ -24,7 +24,12 @@ class CentralizedHumanResourceManagementScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<CentralizedHumanResourceManagementBloc>(
       create: (context) => getIt<CentralizedHumanResourceManagementBloc>(),
-      child: const CentralizedHumanResourceManagementStateScreen(),
+      child: BlocBuilder<CentralizedHumanResourceManagementBloc,
+          CentralizedHumanResourceManagementState>(
+        builder: (context, state) {
+          return CentralizedHumanResourceManagementStateScreen();
+        },
+      ),
     );
   }
 }
@@ -84,6 +89,17 @@ class _CentralizedHumanResourceManagementStateScreenState
         );
       },
     );
+    final staffInfoWidget = BlocBuilder<CentralizedHumanResourceManagementBloc,
+        CentralizedHumanResourceManagementState>(
+      builder: (context, state) {
+        return Flexible(
+            flex: 2,
+            child: StaffInfoWidget(
+              staffInfo: staffInfo,
+            ));
+      },
+    );
+
     return BlocConsumer<CentralizedHumanResourceManagementBloc,
         CentralizedHumanResourceManagementState>(
       listener: (context, state) async {
@@ -117,21 +133,9 @@ class _CentralizedHumanResourceManagementStateScreenState
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Flexible(
-                      flex: 2,
-                      child: StaffInfoWidget(
-                        staffInfo: staffInfo,
-                      )),
-                  Flexible(
-                      flex: 4,
-                      child: HistoryActivityWidget(
-                        timeLine: timeLine,
-                      )),
-                  Flexible(
-                      flex: 2,
-                      child: WorkInfoAndProjectInfoWidget(
-                        staffInfo: staffInfo,
-                      )),
+                  staffInfoWidget,
+                  Flexible(flex: 4, child: HistoryActivityWidget()),
+                  Flexible(flex: 2, child: WorkInfoAndProjectInfoWidget()),
                 ],
               )
             ],

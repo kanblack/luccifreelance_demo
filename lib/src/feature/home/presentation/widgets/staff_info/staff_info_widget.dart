@@ -9,7 +9,10 @@ import '../../../../../../generated/l10n.dart';
 
 class StaffInfoWidget extends StatelessWidget {
   final StaffInfo? staffInfo;
-  const StaffInfoWidget({Key? key, required this.staffInfo}) : super(key: key);
+  const StaffInfoWidget({
+    Key? key,
+    this.staffInfo,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,9 @@ class StaffInfoWidget extends StatelessWidget {
         style: AppTextStyle.heading2Bold,
       ),
     );
-    const staffInfoDetail = StaffInfoDetailWidget();
+    final staffInfoDetail = StaffInfoDetailWidget(
+      staffInfo: staffInfo,
+    );
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {

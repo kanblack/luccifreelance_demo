@@ -10,8 +10,7 @@ import '../../../../../shared/constants/colors_constants.dart';
 import '../../../domain/entities/time_line.dart';
 
 class HistoryActivityWidget extends StatefulWidget {
-  final List<GroupTimeLine>? timeLine;
-  const HistoryActivityWidget({Key? key, this.timeLine}) : super(key: key);
+  const HistoryActivityWidget({Key? key}) : super(key: key);
 
   @override
   State<HistoryActivityWidget> createState() => _HistoryActivityWidgetState();
@@ -45,7 +44,6 @@ class _HistoryActivityWidgetState extends State<HistoryActivityWidget> {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         var size = MediaQuery.of(context).size;
-
         return SizedBox(
           height: size.height * 1.14,
           child: Column(

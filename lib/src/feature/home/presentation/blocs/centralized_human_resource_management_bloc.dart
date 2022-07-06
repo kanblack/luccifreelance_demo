@@ -28,9 +28,11 @@ class CentralizedHumanResourceManagementBloc extends Bloc<
 
   void _onGetStaffInfo(RequestGetStaffInfoEvent event,
       Emitter<CentralizedHumanResourceManagementState> emitter) async {
-    loadingCubit.showLoading();
+    print("1");
+    //loadingCubit.showLoading();
     await getStaffInfo(true).then((response) {
-      loadingCubit.hideLoading();
+      //   loadingCubit.hideLoading();
+      print("2");
       response.fold((l) => emitter(Failure(l.message)), (r) {
         emitter(GetStaffInfoSuccess(r));
       });

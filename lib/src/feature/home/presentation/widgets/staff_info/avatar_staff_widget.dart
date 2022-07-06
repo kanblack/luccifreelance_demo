@@ -8,8 +8,7 @@ import 'dropdown_selected_widget.dart';
 
 class AvatarStaffWidget extends StatelessWidget {
   final StaffInfo? staffInfo;
-  const AvatarStaffWidget({Key? key, required this.staffInfo})
-      : super(key: key);
+  const AvatarStaffWidget({Key? key, this.staffInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

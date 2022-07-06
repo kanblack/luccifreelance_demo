@@ -9,8 +9,7 @@ import 'department_and_authority_widget.dart';
 import 'project_and_decentralization_widget.dart';
 
 class WorkInfoAndProjectInfoWidget extends StatelessWidget {
-  final StaffInfo? staffInfo;
-  const WorkInfoAndProjectInfoWidget({Key? key, this.staffInfo})
+  const WorkInfoAndProjectInfoWidget({Key? key,})
       : super(key: key);
 
   @override
@@ -42,24 +41,24 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return DepartmentAndAuthorityWidget(
-          department: staffInfo?.workInfo[index].boPhan ?? "",
-          authority: staffInfo?.workInfo[index].quyenHan ?? "",
+          department:  "",
+          authority: "",
           isTitle: false,
         );
       },
-      itemCount: staffInfo?.workInfo.length,
+      itemCount: 2,
     );
     final listProjectAndDecentralization = ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return ProjectAndDecentralization(
-          decentralization: staffInfo?.dsDuAn[index].role ?? "",
-          projectNumber: (index + 1).toString(),
-          projectName: staffInfo?.dsDuAn[index].tenDuAn ?? "",
+          decentralization: "",
+          projectNumber: "",
+          projectName:  "",
         );
       },
-      itemCount: staffInfo?.dsDuAn.length,
+      itemCount: 2,
     );
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -69,21 +68,19 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
               horizontal: AppDimensPadding.contentPadding),
           decoration: const BoxDecoration(color: back12Background),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                largerPadding,
-                titleWorkInfo,
-                largerPadding,
-                titleDepartmentAndAuthority,
-                listWorkInfo,
-                largerPadding,
-                titleProjectAndDecentralization,
-                listProjectAndDecentralization,
-              ],
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              largerPadding,
+              titleWorkInfo,
+              largerPadding,
+              titleDepartmentAndAuthority,
+              listWorkInfo,
+              largerPadding,
+              titleProjectAndDecentralization,
+              listProjectAndDecentralization,
+            ],
           ),
         );
       },
