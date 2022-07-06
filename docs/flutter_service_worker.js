@@ -6,7 +6,7 @@ const RESOURCES = {
   "assets/AssetManifest.json": "2efbb41d7877d10aac9d091f58ccd7b9",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
-"assets/NOTICES": "74d7c8eb71309feda76ff3a1e167da8f",
+"assets/NOTICES": "94f095a27b3ab4a481b3d1beeffdd871",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
 "canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba",
@@ -18,9 +18,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "02e0cc24325a6f4990c70a07448cb38e",
-"/": "02e0cc24325a6f4990c70a07448cb38e",
-"main.dart.js": "6865138a4d3842e1c38efd3bea5a71f9",
+"index.html": "1acc89c2f22372e8764ab3c9e9a57933",
+"/": "1acc89c2f22372e8764ab3c9e9a57933",
+"main.dart.js": "f4519507d6bf694a15778810fd992000",
 "manifest.json": "2a990f9cb05c5e6c3a4133af6a9285bd",
 "version.json": "97fc3d711e64605ce20691a6166b34d5"
 };
