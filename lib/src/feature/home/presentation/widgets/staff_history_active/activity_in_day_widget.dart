@@ -3,33 +3,32 @@ import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../../domain/entities/time_line.dart';
 import 'activity_at_time_widget.dart';
 
 class ActivityDayWidget extends StatelessWidget {
-  final String time;
-  final List<String> action;
-  const ActivityDayWidget({Key? key, required this.time, required this.action})
-      : super(key: key);
+  final List<TimeLine>? timeLine;
+  ActivityDayWidget({Key? key, this.timeLine}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final paddingLarger = SizedBox(
+    const paddingLarger = SizedBox(
       height: AppDimensPadding.largePadding,
     );
-    final paddingSmall = SizedBox(
+    const paddingSmall = SizedBox(
       height: AppDimensPadding.smallPadding,
     );
     final titleDay = SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Icon(
+          const Icon(
             Icons.calendar_today_outlined,
             size: AppDimens.iconSmallSize,
             color: textNormal,
           ),
           Text(
-            time,
+            "time",
             style: AppTextStyle.body1Medium,
           )
         ],

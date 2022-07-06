@@ -1,3 +1,4 @@
+import 'package:demo_luci_web/src/feature/home/domain/entities/staff_info.dart';
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,9 @@ import '../../../../../shared/constants/colors_constants.dart';
 import 'dropdown_selected_widget.dart';
 
 class AvatarStaffWidget extends StatelessWidget {
-  const AvatarStaffWidget({Key? key}) : super(key: key);
+  final StaffInfo? staffInfo;
+  const AvatarStaffWidget({Key? key, required this.staffInfo})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +24,15 @@ class AvatarStaffWidget extends StatelessWidget {
       radius: AppAvatarSize.normalSize,
       child: Container(),
     );
-    final staffInfo = Column(
+    final staffInfoWidget = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Phạm Ngọc Thắng",
+          staffInfo?.getStaffName() ?? "",
           style: AppTextStyle.heading3Bold,
         ),
-        Text("Developer", style: AppTextStyle.body1),
-        Text("Active", style: AppTextStyle.body1)
+        Text(staffInfo?.chucVu ?? "", style: AppTextStyle.body1),
+        Text(staffInfo?.trangThai ?? "", style: AppTextStyle.body1)
       ],
     );
     final textButtonDropDown = DropDownSelectWidget();
@@ -41,7 +44,7 @@ class AvatarStaffWidget extends StatelessWidget {
         children: [
           avatarStaff,
           tinyPadding,
-          Expanded(child: staffInfo),
+          Expanded(child: staffInfoWidget),
           normalPadding,
           textButtonDropDown
         ],
