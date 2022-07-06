@@ -20,6 +20,9 @@ class ActivityDayWidget extends StatelessWidget {
     const paddingSmall = SizedBox(
       height: AppDimensPadding.smallPadding,
     );
+    const paddingWithSmall = SizedBox(
+      width: AppDimensPadding.smallPadding,
+    );
     final titleDay = SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -29,6 +32,7 @@ class ActivityDayWidget extends StatelessWidget {
             size: AppDimens.iconSmallSize,
             color: textNormal,
           ),
+          paddingWithSmall,
           Text(
             timeLine?.getTime() ?? "",
             style: AppTextStyle.body1Medium,

@@ -1,5 +1,6 @@
 import 'package:demo_luci_web/src/feature/home/domain/entities/staff_info.dart';
 import 'package:demo_luci_web/src/shared/constants/dimens_constants.dart';
+import 'package:demo_luci_web/src/shared/constants/imgs_constants.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class AvatarStaffWidget extends StatelessWidget {
     final avatarStaff = CircleAvatar(
       backgroundColor: shadowColor,
       radius: AppAvatarSize.normalSize,
-      child: Container(),
+      child: Image.network("https://i.pravatar.cc/300"),
     );
     final staffInfoWidget = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,16 +35,23 @@ class AvatarStaffWidget extends StatelessWidget {
         Text(staffInfo?.trangThai ?? "", style: AppTextStyle.body1)
       ],
     );
-    final textButtonDropDown = DropDownSelectWidget();
+    const textButtonDropDown = DropDownSelectWidget();
     return Container(
       padding: const EdgeInsets.symmetric(
           horizontal: AppDimensPadding.contentPadding),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          avatarStaff,
-          tinyPadding,
-          Expanded(child: staffInfoWidget),
+          Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                avatarStaff,
+                tinyPadding,
+                Expanded(child: staffInfoWidget)
+              ],
+            ),
+          ),
           normalPadding,
           textButtonDropDown
         ],

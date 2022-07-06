@@ -22,7 +22,8 @@ class MenuBarWidget extends StatelessWidget {
         child: GestureDetector(
           onTap: () {},
           child: Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(
+                vertical: AppDimensPadding.contentPadding),
             decoration: BoxDecoration(
                 color: logoBackground, borderRadius: BorderRadius.circular(15)),
             child: const Text(

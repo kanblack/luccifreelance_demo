@@ -4,6 +4,8 @@ import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../constants/imgs_constants.dart';
+
 class AvatarAppBarWidget extends StatefulWidget {
   const AvatarAppBarWidget({Key? key}) : super(key: key);
 
@@ -25,9 +27,11 @@ class _AvatarAppBarWidgetState extends State<AvatarAppBarWidget> {
           color: Colors.white,
         )),
   );
-  final avatar = const CircleAvatar(
+  final avatar = CircleAvatar(
     radius: AppAvatarSize.smallSize,
     backgroundColor: Colors.blue,
+    child:
+        Image.network("https://faces-img.xcdn.link/image-lorem-face-4198.jpg"),
   );
   final userName = ResponsiveVisibility(
     visible: false,
