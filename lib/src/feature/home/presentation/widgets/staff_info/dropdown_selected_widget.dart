@@ -25,25 +25,23 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
-        customButton: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                S.current.lbl_option,
-                style: AppTextStyle.caption1.merge(const TextStyle(
-                    color: textButton, fontWeight: FontWeight.bold)),
-              ),
-              Icon(
-                Icons.arrow_drop_down,
-                size: AppDimens.iconSmallSize,
-                color: textButton,
-              )
-            ],
-          ),
+        customButton: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              S.current.lbl_option,
+              style: AppTextStyle.caption1.merge(const TextStyle(
+                  color: textButton, fontWeight: FontWeight.bold)),
+            ),
+            const Icon(
+              Icons.arrow_drop_down,
+              size: AppDimens.iconSmallSize,
+              color: textButton,
+            )
+          ],
         ),
-        offset: Offset(-80, 0),
+        offset: const Offset(-80, 0),
         alignment: Alignment.bottomCenter,
         dropdownDecoration: BoxDecoration(
             borderRadius:
@@ -51,24 +49,44 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
         items: [
           DropdownMenuItem<String>(
             value: items[0],
-            child: Text(
-              items[0],
-              style: AppTextStyle.caption1,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: Text(
+                items[0],
+                style: AppTextStyle.caption1,
+              ),
             ),
           ),
           DropdownMenuItem<String>(
             value: items[1],
-            child: Text(
-              items[1],
-              style: AppTextStyle.caption1,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: Text(
+                items[1],
+                style: AppTextStyle.caption1,
+              ),
             ),
           ),
-          const DropdownMenuItem<Divider>(
-              enabled: false, child: SizedBox(height: 1, child: Divider())),
           DropdownMenuItem<String>(
             value: items[2],
-            child: Text(items[2],
-                style: AppTextStyle.caption1.apply(color: textButtonDelete)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Divider(
+                  height: 1,
+                ),
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16),
+                  child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(items[2],
+                          style: AppTextStyle.caption1.apply(
+                            color: textButtonDelete,
+                          ))),
+                ))
+              ],
+            ),
           )
         ],
         value: selectedValue,
@@ -78,10 +96,11 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
           });
         },
         itemHeight: 48,
-        itemPadding: const EdgeInsets.only(left: 16, right: 16),
+        // itemPadding: const EdgeInsets.only(left: 16, right: 16),
         dropdownWidth: 160,
         dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
         dropdownElevation: 8,
+        itemPadding: EdgeInsets.zero,
       ),
     );
   }
