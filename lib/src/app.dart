@@ -54,11 +54,9 @@ class App extends StatelessWidget {
                     onTap: () {
                       FocusManager.instance.primaryFocus?.unfocus();
                     },
-                    child: Scaffold(
-                      // appBar: const PreferredSize(
-                      //     preferredSize: Size(double.infinity, 66),
-                      //     child: widget!),
-                      body: widget,
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 1.14,
+                      child: widget,
                     ),
                   ),
                 )),

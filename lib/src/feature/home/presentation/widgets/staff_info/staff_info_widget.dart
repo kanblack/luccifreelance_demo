@@ -24,27 +24,32 @@ class StaffInfoWidget extends StatelessWidget {
         style: AppTextStyle.heading2Bold,
       ),
     );
-    final staffInfoDetail = StaffInfoDetailWidget();
+    const staffInfoDetail = StaffInfoDetailWidget();
 
-    return ResponsiveConstraints(
-      constraintsWhen: blockWidthConstraints,
-      child: Container(
-        decoration: BoxDecoration(color: Colors.black12),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            paddingNormal,
-            avatarStaffWidget,
-            paddingNormal,
-            Divider(),
-            paddingNormal,
-            titleStaffInfo,
-            paddingNormal,
-            staffInfoDetail
-          ],
-        ),
-      ),
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        var size = MediaQuery.of(context).size;
+        return Container(
+          height: size.height * 1.14,
+          decoration: const BoxDecoration(color: Colors.black12),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                paddingNormal,
+                avatarStaffWidget,
+                paddingNormal,
+                Divider(),
+                paddingNormal,
+                titleStaffInfo,
+                paddingNormal,
+                staffInfoDetail
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

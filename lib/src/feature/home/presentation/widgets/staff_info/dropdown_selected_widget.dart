@@ -20,25 +20,34 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
     'Đổi mật khẩu',
     'Xoá nhân sự',
   ];
+
   @override
   Widget build(BuildContext context) {
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
-        offset: Offset(-20, 0),
-        isExpanded: true,
+        customButton: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                S.current.lbl_option,
+                style: AppTextStyle.caption1.merge(const TextStyle(
+                    color: textButton, fontWeight: FontWeight.bold)),
+              ),
+              Icon(
+                Icons.arrow_drop_down,
+                size: AppDimens.iconSmallSize,
+                color: textButton,
+              )
+            ],
+          ),
+        ),
+        offset: Offset(-80, 0),
         alignment: Alignment.bottomCenter,
-        icon: Container(),
-        buttonPadding: EdgeInsets.zero,
-        dropdownPadding: EdgeInsets.zero,
-        itemPadding: const EdgeInsets.symmetric(
-            horizontal: AppDimensPadding.contentPadding),
         dropdownDecoration: BoxDecoration(
             borderRadius:
                 BorderRadius.circular(AppDimensBorder.bottomSheetBorder)),
-        hint: Text(
-          S.current.lbl_option,
-          style: AppTextStyle.caption1.apply(color: AppColors.textButton),
-        ),
         items: [
           DropdownMenuItem<String>(
             value: items[0],
@@ -59,8 +68,7 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
           DropdownMenuItem<String>(
             value: items[2],
             child: Text(items[2],
-                style: AppTextStyle.caption1
-                    .apply(color: AppColors.textButtonDelete)),
+                style: AppTextStyle.caption1.apply(color: textButtonDelete)),
           )
         ],
         value: selectedValue,
@@ -69,7 +77,11 @@ class _DropDownSelectWidgetState extends State<DropDownSelectWidget> {
             selectedValue = value as String;
           });
         },
-        buttonWidth: 100,
+        itemHeight: 48,
+        itemPadding: const EdgeInsets.only(left: 16, right: 16),
+        dropdownWidth: 160,
+        dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
+        dropdownElevation: 8,
       ),
     );
   }

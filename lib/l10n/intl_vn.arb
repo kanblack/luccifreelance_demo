@@ -4,7 +4,7 @@
   "lbl_centralized_department_management": "Quản lý bộ phân tập trung",
   "lbl_centralized_human_resource_management": "Quản lý nhân sự cấp tập trung",
   "lbl_configuration": "Cấu hình",
-  "lbl_option": "Tuỳ chọn",
+  "lbl_option": "Tùy chọn",
   "lbl_title_staff_info": "Thông tin nhân viên",
   "lbl_staff_code": "Mã Nhân Viên",
   "lbl_user_name": "Tên đăng nhập",
@@ -16,5 +16,19 @@
   "lbl_id_card": "CMND/CCCD/Hộ chiếu",
   "lbl_date_range": "Ngày cấp",
   "lbl_place_for_identity_card": "Nơi cấp",
-  "lbl_note": "Ghi chú"
+  "lbl_note": "Ghi chú",
+  "lbl_work_info": "Thông tin công việc",
+  "lbl_department": "Bộ phận",
+  "lbl_authority": "Quyền hạn",
+  "lbl_project_in_charge_and_decentralization": "Phụ trách dự án và phân quyền",
+  "lbl_project": "Dự án ",
+  "lbl_decentralization": "Phân quyền",
+  "lbl_accessed_features": "Các module, tính năng được phép truy cập",
+  "lbl_search_action": "Tim kiem theo hanh dong",
+  "lbl_time": "Thoi gian",
+  "lbl_all": "Tat ca",
+  "lbl_history_activity": "Lich Su Hoat Dong"
+
+
+
 }
