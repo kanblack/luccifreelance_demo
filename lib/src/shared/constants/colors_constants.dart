@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const appBarColor = Color(0xFF910D11);
 const shadowColor = Color(0x1A000000);
-const textButtonDelete = Color(0xFFF8AC3A);
+const textButtonDelete = Color(0XFFE45F3E);
 const textAppbar = Color(0xFFFFFFFF);
 const textNormal = Color(0xFF353B3F);
 const textButton = Color(0xFF9E2F32);
