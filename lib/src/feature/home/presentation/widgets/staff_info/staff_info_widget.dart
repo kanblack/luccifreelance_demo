@@ -40,8 +40,8 @@ class StaffInfoWidget extends StatelessWidget {
           padding: EdgeInsets.only(left: AppDimensPadding.tinyPadding),
           height: size.height * 1.14,
           decoration: const BoxDecoration(
-            color: back12Background,
-          ),
+              color: back12Background,
+              border: Border(right: BorderSide(color: borderColor))),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

@@ -83,7 +83,9 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
           height: size.height * 1.14,
           padding: const EdgeInsets.symmetric(
               horizontal: AppDimensPadding.contentPadding),
-          decoration: const BoxDecoration(color: back12Background),
+          decoration: const BoxDecoration(
+              color: back12Background,
+              border: Border(right: BorderSide(color: borderColor))),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -94,7 +96,11 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
                 largerPadding,
                 titleDepartmentAndAuthority,
                 // const Divider(color: Colors.red,),
-                const DottedLine(dashLength: 2, dashGapLength: 2,dashColor: dividerColor,),
+                const DottedLine(
+                  dashLength: 2,
+                  dashGapLength: 2,
+                  dashColor: dividerColor,
+                ),
                 listWorkInfo,
                 largerPadding,
                 titleProjectAndDecentralization,
