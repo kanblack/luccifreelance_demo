@@ -60,7 +60,7 @@ class Routes {
       case RouteNames.mainScreen:
         return _pageRoute(page: const MainScreen(), setting: settings);
       default:
-        return _emptyRoute(settings);
+        return _pageRoute(page: const MainScreen(), setting: settings);
     }
   }
 
