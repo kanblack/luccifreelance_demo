@@ -40,3 +40,28 @@ String getActionTypeEnum(ActionTypeEnum actionTypeEnum) {
       return "Null";
   }
 }
+
+extension StatusExtension on StatusEnum {
+  String get value {
+    switch (this) {
+      case StatusEnum.active:
+        return "ACTIVE";
+      default:
+        return "";
+    }
+  }
+}
+
+final Map<String, StatusEnum> statusEnums = Map.of({
+  StatusEnum.active.value: StatusEnum.active,
+  StatusEnum.unKnow.value: StatusEnum.unKnow,
+});
+
+String getStatusEnum(StatusEnum statusEnum) {
+  switch (statusEnum) {
+    case StatusEnum.active:
+      return S.current.lbl_status_active;
+    default:
+      return "Null";
+  }
+}

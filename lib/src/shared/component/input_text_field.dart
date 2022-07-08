@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../config/themes/common.dart';
+import '../constants/colors_constants.dart';
 import '../constants/dimens_constants.dart';
 import '../utils/valid_text_field.dart';
 
@@ -91,6 +92,7 @@ class _CommonInputTextFormFieldState extends State<CommonInputTextFormField> {
     } else if (widget.isSearch == true) {
       suffixIcon = const Icon(
         Icons.search,
+        color: iconLockupColor,
         size: AppDimens.iconSmallSize,
       );
     } else {
@@ -121,6 +123,7 @@ class _CommonInputTextFormFieldState extends State<CommonInputTextFormField> {
         readOnly: isReadOnly,
         focusNode: widget.focusNode,
         style: AppTextStyle.caption1.copyWith(fontSize: 12),
+        cursorColor: textNormal,
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.all(AppDimensPadding.tinyPadding),
             suffixIcon: !isReadOnly ? suffixIcon : null,

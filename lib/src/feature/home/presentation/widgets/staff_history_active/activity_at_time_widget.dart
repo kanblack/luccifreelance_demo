@@ -12,10 +12,10 @@ class ActivityAtTimeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final paddingLarger = SizedBox(
+    const paddingLarger = SizedBox(
       height: AppDimensPadding.largePadding,
     );
-    final paddingNormal = SizedBox(
+    const paddingNormal = SizedBox(
       height: AppDimensPadding.normalPadding,
     );
 

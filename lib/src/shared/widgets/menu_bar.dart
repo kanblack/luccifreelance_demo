@@ -14,6 +14,12 @@ class MenuBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const padding = SizedBox(
+      width: AppDimensPadding.normalPadding,
+    );
+    const paddingTiny = SizedBox(
+      width: AppDimensPadding.normalPadding,
+    );
     final logo = ResponsiveVisibility(
       visible: false,
       visibleWhen: const [Condition.largerThan(name: MOBILE)],
@@ -22,7 +28,9 @@ class MenuBarWidget extends StatelessWidget {
         child: GestureDetector(
           onTap: () {},
           child: Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(
+              AppDimensPadding.smallPadding,
+            ),
             decoration: BoxDecoration(
                 color: logoBackground, borderRadius: BorderRadius.circular(15)),
             child: const Text(
@@ -83,6 +91,7 @@ class MenuBarWidget extends StatelessWidget {
           : ResponsiveRowColumnType.ROW,
       rowMainAxisAlignment: MainAxisAlignment.center,
       rowCrossAxisAlignment: CrossAxisAlignment.center,
+      columnMainAxisAlignment: MainAxisAlignment.center,
       children: [projectManagerButton, centralizedDepartmentManagement],
     );
     final responsiveHumaneAndConfig = ResponsiveRowColumn(
@@ -91,9 +100,14 @@ class MenuBarWidget extends StatelessWidget {
           : ResponsiveRowColumnType.ROW,
       rowMainAxisAlignment: MainAxisAlignment.center,
       rowCrossAxisAlignment: CrossAxisAlignment.center,
+      columnMainAxisAlignment: MainAxisAlignment.center,
       children: [centralizedHumanResourceManagement, configuration],
     );
-    const avatarUserWidget = AvatarAppBarWidget();
+    const avatarUserWidget = ResponsiveVisibility(
+      visible: false,
+      visibleWhen: const [Condition.largerThan(name: MOBILE)],
+      child: AvatarAppBarWidget(),
+    );
     return Container(
       decoration: const BoxDecoration(color: appBarColor, boxShadow: [
         BoxShadow(color: shadowColor, offset: Offset(0, 2), blurRadius: 4)
@@ -105,8 +119,11 @@ class MenuBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          paddingTiny,
           logo,
+          padding,
           responsiveProjectAndDepartment,
+          padding,
           responsiveHumaneAndConfig,
           const Spacer(),
           avatarUserWidget

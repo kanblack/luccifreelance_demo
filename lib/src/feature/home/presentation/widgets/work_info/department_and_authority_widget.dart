@@ -28,7 +28,7 @@ class DepartmentAndAuthorityWidget extends StatelessWidget {
       decoration: const BoxDecoration(
           border: Border(
               bottom: BorderSide(
-        color: back12Background,
+        color: dividerColor,
       ))),
       child: Row(
         children: [

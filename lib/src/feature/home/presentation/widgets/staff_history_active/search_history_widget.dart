@@ -57,7 +57,8 @@ class _SearchHistoryWidgetState extends State<SearchHistoryWidget> {
               smallPadding,
               Text(
                 S.current.lbl_all,
-                style: AppTextStyle.body1Medium.apply(color: textButton),
+                style: AppTextStyle.caption1.merge(const TextStyle(
+                    color: textButton, fontWeight: FontWeight.bold)),
                 overflow: TextOverflow.ellipsis,
               ),
               const Icon(

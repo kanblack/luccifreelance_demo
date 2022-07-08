@@ -59,6 +59,9 @@ class _CentralizedHumanResourceManagementStateScreenState
 
   @override
   Widget build(BuildContext context) {
+    const paddingTiny = SizedBox(
+      width: AppDimensPadding.tinyPadding,
+    );
     const paddingLeftTitle = SizedBox(
       width: AppDimensPadding.largePadding,
     );
@@ -69,9 +72,10 @@ class _CentralizedHumanResourceManagementStateScreenState
           width: double.infinity,
           height: AppDimens.heightTitlePage,
           decoration: const BoxDecoration(
-              border: Border(bottom: BorderSide(color: Colors.grey, width: 1))),
+              border: Border(bottom: BorderSide(color: borderColor, width: 1))),
           child: Row(
             children: [
+              paddingTiny,
               paddingLeftTitle,
               Text(
                 S.current.lbl_centralized_human_resource_management,

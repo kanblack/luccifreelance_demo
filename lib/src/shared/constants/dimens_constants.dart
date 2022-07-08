@@ -18,6 +18,7 @@ class AppDimens {
   static const heightFieldSearch = 30.0;
   static const widthFieldSearch = 200.0;
   static const heightAppBar = 80.0;
+  static const heightMobileAppBar = 150.0;
 }
 
 class AppDimensPadding {
@@ -27,7 +28,7 @@ class AppDimensPadding {
   static const largePadding = 24.0;
   static const extraLargePadding = 36.0;
 
-  static const contentPadding = 16.0;
+  static const contentPadding = 20.0;
   static const screenPadding = 20.0;
   static const boxPadding = 48.0;
   static const buttonHorizonPadding = 24.0;

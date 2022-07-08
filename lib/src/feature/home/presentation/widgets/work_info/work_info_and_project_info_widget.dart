@@ -1,5 +1,6 @@
 import 'package:demo_luci_web/src/feature/home/domain/entities/staff_info.dart';
 import 'package:demo_luci_web/src/shared/constants/text_style_constants.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../generated/l10n.dart';
@@ -82,7 +83,9 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
           height: size.height * 1.14,
           padding: const EdgeInsets.symmetric(
               horizontal: AppDimensPadding.contentPadding),
-          decoration: const BoxDecoration(color: back12Background),
+          decoration: const BoxDecoration(
+              color: back12Background,
+              border: Border(left: BorderSide(color: borderColor))),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -92,6 +95,12 @@ class WorkInfoAndProjectInfoWidget extends StatelessWidget {
                 titleWorkInfo,
                 largerPadding,
                 titleDepartmentAndAuthority,
+                // const Divider(color: Colors.red,),
+                const DottedLine(
+                  dashLength: 2,
+                  dashGapLength: 2,
+                  dashColor: dividerColor,
+                ),
                 listWorkInfo,
                 largerPadding,
                 titleProjectAndDecentralization,

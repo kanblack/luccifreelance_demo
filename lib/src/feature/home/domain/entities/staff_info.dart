@@ -2,6 +2,8 @@ import 'package:demo_luci_web/src/feature/home/domain/entities/authority_info.da
 import 'package:demo_luci_web/src/feature/home/domain/entities/project.dart';
 import 'package:demo_luci_web/src/feature/home/domain/entities/work_info.dart';
 
+import '../../../../shared/constants/enums_constants.dart';
+
 class StaffInfo {
   final String maNhanVien;
   final String ho;
@@ -15,7 +17,7 @@ class StaffInfo {
   final String diaChi;
   final String chucVu;
   final AuthorityInfo authorityInfo;
-  final String trangThai;
+  final StatusEnum trangThai;
   final bool AuthFactor;
   final String note;
   final List<WorkInfo> workInfo;
